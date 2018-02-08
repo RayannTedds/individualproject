@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+	<head>
+		<meta charset="utf-8">
+		<title>Hello...</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/scripts/main.js"></script>		
+		<link rel="stylesheet" href="/styles/style.css">
+	</head>
+	
+	<body>
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <a href="#">About</a>
+		  <a href="#">Services</a>
+		  <a href="#">Clients</a>
+		  <a href="#">Contact</a>
+		</div>
+		
+		<div id="mainContent">
+			<div id="banner">
+				<p id="menuicon" class="bannerparts" onclick="openNav()">☰</p>
+				<p id="name" class="bannerparts">IT Girls</p>
+				<img class="bannerparts" id="loginimage" data-toggle="modal" data-target="#loginModal" src="/images/login.png"/>
+			</div>
+		</div>
+		
+		<!-- The Modal -->
+		<div id="loginModal" class="modal fade">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <span class="close">&times;</span>
+		    <p>Some text in the Modal..</p>
+		  </div>
+		
+		</div>
+		
+		
+	</body>
+</html>
