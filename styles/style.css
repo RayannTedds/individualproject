@@ -1,5 +1,5 @@
 body {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Helvetica, sans-serif;
 	font-weight: bold;
 	background-color: #E3F0FB;
 	border-radius: 4px;
@@ -24,6 +24,27 @@ body {
     text-align: center;
 }
 
+#minibanner {
+    left: 0;
+    top: 50px;
+    height: 25px;
+    width: 100%;
+    background-color: darkgray;
+    text-align: center;
+}
+
+.minibanneroption {
+    display: inline-block;
+    width: 24%;
+    padding-top: 1px;
+    color: white;
+    cursor: pointer;
+}
+
+.minibanneroption:hover {
+    color:palevioletred;
+}
+
 #name, #menuicon, #loginimage {
     font-size: 1.4em;
     color: white;
@@ -34,9 +55,10 @@ body {
 
 #menuicon {
     float: left;
-    margin-left: 15px;
+    margin-left: 35px;
     cursor: pointer;
-    top: 10px;
+    top: 9.5px;
+    font-size: 1.55em;
 }
 
 #loginimage {
@@ -47,93 +69,247 @@ body {
     cursor: pointer;
 }
 
+#homeimagemain {
+    display: inline-block;
+    position: relative;
+    width: 25px;
+    float: left;
+    margin-top: 11px;
+    left: 20px;
+    z-index: 10;
+    cursor: pointer;
+}
+
 .bannerparts {
     display: inline-block;
 }
 
-.modal {
-    /*display: none; */
-    /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+
+.sidenav {
+    height: 100%; 
+    width: 0;
+    position: fixed; 
+    z-index: 1;
+    top: 0; 
     left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: #282a2b; 
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
 }
 
-/* Modal Content/Box */
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover, .close:focus {
-    color: black;
+.sidenav p, a {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 20px;
     text-decoration: none;
+    text-align: left;
+    font-size: 1.3em;
+    color: white;
+    display: block;
+    transition: 0.1s;
+    border-bottom: 1.5px solid rgba(219,112,147, 0.2);
     cursor: pointer;
 }
 
-/* The side navigation menu */
-.sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+#firstmenuitem {
+    padding-top: 9px;
 }
 
-/* The navigation menu links */
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
+.sidenav p {
+    padding-right: 20px;
 }
 
-/* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: palevioletred;
+    text-decoration: none;
 }
 
-/* Position and style the close button (top right corner) */
 .sidenav .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+    right: 0;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-right: 10px;
+    padding-top: 15px;
+    color: white;
+    left: 0;
+    text-align: right;
+    padding-bottom: 10px;
 }
 
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
     transition: margin-left .5s;
     padding: 20px;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+}
+
+.modal-backdrop.in {
+    opacity: 0.4;
+}
+
+.modalTitles {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 1pt;
+}
+
+.modal-header {
+    border-bottom: 1.5px solid rgba(219,112,147, 0.3);
+}
+
+.modal-body {
+    padding-top: 30px;
+}
+
+form {
+	margin: 0 auto;
+}
+
+fieldset {
+	width: 80%;
+    margin: 0 auto;
+    padding-bottom: 13px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.inputs {
+	height: 50px;
+	border-radius: 5px;
+	color: darkgray;
+}
+
+#login, #resetPassword, #removeProfile {
+	height: 40px;
+	background-color: palevioletred;
+	border: 0;
+	width: 100%;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+#register, #reset {
+	height: 40px;
+	background-color: palevioletred;
+	border: 0;
+	width: 48%;
+	margin-left: 2px;
+}
+
+label {
+	float: right;
+	color: palevioletred;
+	font-weight: normal;
+	cursor: pointer;
+}
+
+#loginbutton2 {
+    padding-top: 10px;
+    float: none;
+}
+
+#aboutPage, #eventsPage, #contactPage, #linksPage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#aboutPage {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#calendar-container{
+    padding: 10px;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    border: 1px solid #eee;
+    font-size: 16px;
+    font-family: Arial;
+    padding-top: 20px;
+}
+
+table {
+    margin: 0 auto;
+}
+
+#calendar-container>div{
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+#calendar-month-year{
+    margin: 5px;
+}
+
+#calendar-dates>table>tr>td{
+    padding: 15px;
+    cursor: pointer;
+}
+
+#calendar-container>div{
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+#calendar-month-year{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.arrows {
+    position: relative;
+    display: inline-block;
+}
+
+#calendar-header {
+    top: 10px;
+    width: 35%;
+    height: 30px;
+    margin: 0 auto;
+}
+
+#next {
+    width: 24%;
+    float: right;
+}
+
+#previous {
+    width: 24%;
+    float: left;
+}
+
+#rightimage, #leftimage {
+    width:20px;
+    cursor: pointer;
+}
+
+.inline {
+    float: left;
+    text-align:left;
+    width: 100%;
+}
+
+#aboutPage h4, #aboutPage p {
+    text-align: left;
+}
+
+@media (max-width:730px) and (min-width:0px) {
+    #calendar-header {
+        width: 100%;
+    }
 }

@@ -2,40 +2,190 @@
 <html lang="en-uk">
 	<head>
 		<meta charset="utf-8">
-		<title>Hello...</title>
+		<title>IT Girls</title>
+		  <meta charset="utf-8">
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="/scripts/main.js"></script>		
-		<link rel="stylesheet" href="/styles/style.css">
+		<script type="text/javascript" src="/individualproject/scripts/main.js"></script>	
+		<link rel="stylesheet" href="/individualproject/styles/style.css">
 	</head>
 	
 	<body>
 		<div id="mySidenav" class="sidenav">
-		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		  <a href="#">About</a>
-		  <a href="#">Services</a>
-		  <a href="#">Clients</a>
-		  <a href="#">Contact</a>
+		  	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  	<a id="firstmenuitem" onclick='openAbout()'>About</a>
+		  	<a id='secondmenuitem' onclick="openEvents()">Events</a>
+		  	<a id='thirdmenuitem' onclick="openContact()">Contact</a>
+		  	<a id='fourthmenuitem' onclick="openLinks()">Useful Links</a>
 		</div>
 		
 		<div id="mainContent">
 			<div id="banner">
+				<img id="homeimagemain" onclick='openHome()' src="/individualproject/images/home.png"/>
 				<p id="menuicon" class="bannerparts" onclick="openNav()">☰</p>
 				<p id="name" class="bannerparts">IT Girls</p>
-				<img class="bannerparts" id="loginimage" data-toggle="modal" data-target="#loginModal" src="/images/login.png"/>
+				<img class="bannerparts" id="loginimage" data-toggle="modal" data-target="#loginModal" src="/individualproject/images/login.png"/>
+			</div>
+			<div id="minibanner">
+				<p class='minibanneroption' onclick="openAbout()">About</p>
+				<p class='minibanneroption' onclick="openEvents()">Events</p>
+				<p class='minibanneroption' onclick="openContact()">Contact</p>
+				<p class='minibanneroption' onclick="openLinks()">Links</p>
+			</div>
+			
+			<div id="eventsPage">
+				<div id="calendar-container">
+		            <div id="calendar-header">
+		            	<div id="previous" class="arrows" onclick="getPreviousMonth()"><img id="leftimage" src="/individualproject/images/left.png"/></div>
+		                <p id="calendar-month-year"></p>
+		                <div id="next" class="arrows" onclick="getNextMonth()"><img id="rightimage" src="/individualproject/images/right.png"/></div>
+		                <input type="text" hidden="hidden" id="currentMonthValue"/>
+		                <input type="text" hidden="hidden" id="currentYearValue"/>
+		            </div>
+		            <div id="calendar-dates">
+		            </div>
+		        </div>
+			</div>
+			
+			<div id="aboutPage">
+				<h4>Inspiration</h4>
+				<p>Inspiration for the app</p>
+				<h4>The Facts</h4>
+				<p>Facts</p>
+				<h4>Why do we need more women?</h4>
+				<p>Why we need more women in STEM</p>
 			</div>
 		</div>
 		
-		<!-- The Modal -->
-		<div id="loginModal" class="modal fade">
-		  <!-- Modal content -->
-		  <div class="modal-content">
-		    <span class="close">&times;</span>
-		    <p>Some text in the Modal..</p>
+		<div id="loginModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+		        	<h3 class="modalTitles">Log in</h3>
+		      	</div>
+		      	<div class="modal-body">
+	        		<div class="col-12"> 
+						<form> 
+							<fieldset> 
+								<div class="form-group">
+									<input type="text" class="form-control inputs" id="inputEmail" placeholder="Email">
+								</div>
+								<div class="form-group">
+									<label id="forgotPasswordButton" data-toggle="modal" data-target="#forgottenModal">Forgot password?</label>
+									<input type="password" class="form-control inputs" id="inputPassword" placeholder="Password">
+								</div> 
+								<button tye="button" class="btn btn-primary" id="login">Log In</button>
+								<label class="formText" data-toggle="modal" data-target="#signupModal" id="signupbutton2">New? Sign up!</a></label>
+							</fieldset>
+						</form>
+					</div>
+		      	</div>
+		    </div>
 		  </div>
-		
 		</div>
 		
+		<div id="signupModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+			    	<div class="modal-content">
+			      		<div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+				        	<h3 class="modalTitles">Sign Up</h3>
+				      	</div>
+				      	<div class="modal-body">
+			        		<div class="col-12"> 
+								<form> 
+									<fieldset class="withBorder"> 
+										<div class="form-group">
+											<label id="usernameExists"></label>
+											<input type="text" class="form-control inputs" id="inputUsername" placeholder="Username">
+										</div>
+										<div class="form-group">
+											<input type="date" class="form-control inputs" id="dob" placeholder="Date of birth">
+										</div>
+										<div class="form-group">
+											<label id="emailNotValid"></label>
+											<input type="text" class="form-control inputs" id="inputEmailSign" placeholder="Email">
+										</div>
+										<div class="form-group">
+											<input type="password" class="form-control inputs" id="inputPasswordSign" placeholder="Password">
+										</div> 
+										<div class="form-group"> 
+											<input type="password" class="form-control inputs" id="inputPasswordConfirm" placeholder="Confirm password">
+										</div> 
+										<div class="submitButtons">
+											<button type="reset" class="btn btn-primary" id="reset">Reset</button>
+											<button type="button" class="btn btn-primary" id="register">Register</button>
+										</div>
+										<label class="formText" data-toggle="modal" data-target="#signupModal" id="loginbutton2">Already with us? Log in.</label>
+									</fieldset>
+								</form>
+							</div>
+				      	</div>
+				    </div>
+				</div>
+			</div>
 		
+			<div id="forgottenModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+			    	<div class="modal-content">
+			      		<div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal" id="forgottenClose">&times;</button>
+				        	<h3 class="modalTitles">Forgot Password...</h3>
+			      		</div>
+				      	<div class="modal-body">
+			        		<div class="col-12"> 
+								<form> 
+									<fieldset> 
+										<div class="form-group">
+											<input type="text" class="form-control inputs" id="forgottenUsername" placeholder="Enter your username...">
+										</div>
+										<div class="form-group">
+											<input type="text" class="form-control inputs" id="forgottenEmail" placeholder="Enter your email address...">
+										</div>
+										<div class="form-group">
+											<input type="password" class="form-control inputs" id="newPassword" placeholder="New password">
+										</div>
+										<div class="form-group">
+											<input type="password" class="form-control inputs" id="newPasswordConfirm" placeholder="Confirm new password">
+										</div>
+										<button tye="button" class="btn btn-primary" id="resetPassword">Reset Password</button>
+									</fieldset>
+								</form>
+							</div>
+				      	</div>
+				    	</div>
+			  	</div>
+			</div>
+			<div id="profileModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+			    	<div class="modal-content">
+			      		<div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal" id="profileClose">&times;</button>
+				        	<h3 class="modalTitles" id="profileusername">Username</h3>
+			      		</div>
+				      	<div class="modal-body myprofile">
+			        		<div class="col-12"> 
+			        			<div>
+				        			<p class="bold inline">Member Since: </p>
+				        			<p class="inline paddingLeft" id="userMemberSince"></p>
+				        		</div>
+				        		<div>
+				        			<p class="bold inline">Age: </p>
+				        			<p class="inline paddingLeft" id="userAge"></p>
+				        		</div>
+				        		<div>
+				        			<p class="bold inline">Email: </p>
+				        			<p class="inline paddingLeft" id="userEmail"></p>
+				        		</div>
+								<button tye="button" class="btn btn-primary" data-toggle="modal" data-target="#profileRemovalModal" id="removeProfile">Remove Profile</button>
+							</div>
+				      	</div>
+			  		</div>
+			  	</div>
+			</div>
+			
 	</body>
 </html>
