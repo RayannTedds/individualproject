@@ -15,10 +15,21 @@
 	<body>
 		<div id="mySidenav" class="sidenav">
 		  	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		  	<a id="firstmenuitem" onclick='openAbout()'>About</a>
-		  	<a id='secondmenuitem' onclick="openEvents()">Events</a>
-		  	<a id='thirdmenuitem' onclick="openContact()">Contact</a>
-		  	<a id='fourthmenuitem' onclick="openLinks()">Useful Links</a>
+		  	<div id="sectionone" class="menusections">
+		  		<a class="firstmenuitem" onclick='openIT()'>IT/Computing</a>
+		  		<a class='menuitem' onclick="openTechnology()">Technology</a>
+		  		<a class='menuitem' onclick="openMaths()">Maths</a>
+		  		<a class='menusection menuitem' onclick="openScience()">Science</a>
+		  	</div>
+		  	<div id="sectionthree" class="menusections menusection">
+			  	<a class="menuitem" onclick='openRoles()'>Roles in STEM</a>
+			</div>
+		  	<div id="sectionthree" class="menusections">
+			  	<a class="menuitem" onclick='openAbout()'>About</a>
+			  	<a class='menuitem' onclick="openEvents()">Events</a>
+			  	<a class='menuitem' onclick="openContact()">Contact</a>
+			  	<a class='menusection menuitem' onclick="openLinks()">Useful Links</a>
+			</div>
 		</div>
 		
 		<div id="mainContent">
@@ -36,6 +47,15 @@
 			</div>
 			
 			<div id="eventsPage">
+				<div id="previousMonth">
+					<h4 class="eventTitles">Last Month</h4>
+					<div class="event" data-toggle="modal" data-target="#eventModal">
+						<p>Name</p>
+					</div>
+					<div class="event" data-toggle="modal" data-target="#eventModal">
+						<p>Name</p>
+					</div>
+				</div>
 				<div id="calendar-container">
 		            <div id="calendar-header">
 		            	<div id="previous" class="arrows" onclick="getPreviousMonth()"><img id="leftimage" src="/individualproject/images/left.png"/></div>
@@ -44,11 +64,21 @@
 		                <input type="text" hidden="hidden" id="currentMonthValue"/>
 		                <input type="text" hidden="hidden" id="currentYearValue"/>
 		            </div>
-		            <div id="calendar-dates">
-		            </div>
+		            <div id="calendar-dates"></div>
 		        </div>
+	        	<div id="nextMonth">
+					<h4 class="eventTitles">Next Month</h4>
+					<div class="event" data-toggle="modal" data-target="#eventModal">
+						<p>Name</p>
+					</div>
+				</div>
+				<div id="daysEvents">
+					<h4 class="eventTitles" id="currentDateTitle"></h4>
+					<div class="event current" data-toggle="modal" data-target="#eventModal">
+						<p>Name</p>
+					</div>
+				</div>
 			</div>
-			
 			<div id="aboutPage">
 				<h4>Inspiration</h4>
 				<p>Inspiration for the app</p>
@@ -56,6 +86,23 @@
 				<p>Facts</p>
 				<h4>Why do we need more women?</h4>
 				<p>Why we need more women in STEM</p>
+			</div>
+			
+			<div id="ITPage">
+			</div>
+			
+			<div id="technologyPage">
+			</div>
+			
+			<div id="sciencePage">
+			</div>
+			
+			<div id="mathsPage">
+			</div>
+			
+			<div id="rolesPage">
+				<h4>Introduction paragraph</h4>
+				<p id="test">Take the test</p>
 			</div>
 		</div>
 		
@@ -186,6 +233,31 @@
 			  		</div>
 			  	</div>
 			</div>
-			
+			<div id="eventModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+			    	<div class="modal-content">
+			      		<div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal" id="profileClose">&times;</button>
+				        	<h3 class="modalTitles" id="profileusername">Event Details</h3>
+			      		</div>
+				      	<div class="modal-body myprofile">
+			        		<div class="col-12"> 
+			        			<div>
+				        			<p class="bold inline" id="eventName">Event Name </p>
+				        		</div>
+				        		<div>
+				        			<p class="bold inline">Date: </p>
+				        			<p class="inline paddingLeft" id="eventDate"></p>
+				        		</div>
+				        		<div>
+				        			<p class="bold inline">Location: </p>
+				        			<p class="inline paddingLeft" id="eventLocation"></p>
+				        		</div>
+								<button tye="button" class="btn btn-primary" id="bookEvent">Book Event</button>
+							</div>
+				      	</div>
+			  		</div>
+			  	</div>
+			</div>
 	</body>
 </html>

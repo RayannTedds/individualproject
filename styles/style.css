@@ -1,10 +1,11 @@
 body {
 	font-family: Helvetica, sans-serif;
 	font-weight: bold;
-	background-color: #E3F0FB;
+	background-color: lightgray;
 	border-radius: 4px;
 	padding: 10px;
 	text-align: center;
+	overflow-y: hidden;
 }
 
 #mainContent {
@@ -13,6 +14,7 @@ body {
     height: 100%;
     top: 0;
     left: 0;
+    background-color: #f1f1f1;
 }
 
 #banner {
@@ -22,6 +24,7 @@ body {
     width: 100%;
     background-color: palevioletred;
     text-align: center;
+    border-bottom: 1px solid gray;
 }
 
 #minibanner {
@@ -31,6 +34,7 @@ body {
     width: 100%;
     background-color: darkgray;
     text-align: center;
+    border-bottom: 1px solid gray;
 }
 
 .minibanneroption {
@@ -112,7 +116,7 @@ body {
     cursor: pointer;
 }
 
-#firstmenuitem {
+.firstmenuitem {
     padding-top: 9px;
 }
 
@@ -132,11 +136,28 @@ body {
     font-size: 1.3em;
     font-weight: bold;
     padding-right: 10px;
-    padding-top: 15px;
+    padding-top: 13px;
     color: white;
     left: 0;
     text-align: right;
     padding-bottom: 10px;
+    box-shadow: 0px 1px 5px rgba(219,112,147, 1);
+}
+
+.menusection {
+    box-shadow: 0px 1px 5px rgba(219,112,147, 1);
+}
+
+#sectionone {
+    margin-top: -6px;
+}
+
+#sectionthree {
+    margin-top: 3px;
+}
+
+.menusections {
+    background-color: rgb(29, 24, 24);
 }
 
 #main {
@@ -188,7 +209,7 @@ fieldset {
 	color: darkgray;
 }
 
-#login, #resetPassword, #removeProfile {
+#login, #resetPassword, #removeProfile , #bookEvent {
 	height: 40px;
 	background-color: palevioletred;
 	border: 0;
@@ -217,7 +238,7 @@ label {
     float: none;
 }
 
-#aboutPage, #eventsPage, #contactPage, #linksPage {
+#aboutPage, #eventsPage, #contactPage, #linksPage, #ITPage, #mathsPage, #sciencePage, #technologyPage, #rolesPage {
     position: relative;
     width: 100%;
     height: 100%;
@@ -232,17 +253,19 @@ label {
 
 #calendar-container{
     padding: 10px;
-    width: 100%;
+    width: 60%;
     height: 50%;
     text-align: center;
     border: 1px solid #eee;
     font-size: 16px;
     font-family: Arial;
     padding-top: 20px;
+    display: inline-block;
 }
 
 table {
     margin: 0 auto;
+    width: 70%;
 }
 
 #calendar-container>div{
@@ -298,14 +321,68 @@ table {
     cursor: pointer;
 }
 
+#previousMonth, #nextMonth {
+    position: relative;
+    width: 20%;
+    display: inline-block;
+    background-color: #efe5e5;
+    height: 100%;
+}
+
+#previousMonth {
+    float:left;
+    border-right: 2px solid darkgray;
+}
+
+#nextMonth {
+    float:right;
+    border-left: 2px solid darkgray;
+}
+
+#daysEvents {
+    display: none;
+    position: relative;
+    width: 100%;
+    background-color: #f1f1f1;
+    height: 100%;
+    margin-top: 60px;
+    border-top: 2px solid darkgray;
+}
+
+.eventTitles {
+    font-weight: bold;
+    padding-top: 15px;
+}
+
 .inline {
     float: left;
     text-align:left;
     width: 100%;
 }
 
+.event {
+    height: 40px;
+    background-color: #f4d4de;
+    text-align: left;
+    padding: 10px;
+    margin-top: 23px;
+    border-top: 1px solid palevioletred;
+    border-bottom: 1px solid palevioletred;
+    cursor: pointer;
+}
+
+.current {
+    width:60%;
+    margin: 0 auto;
+    border: 1px solid palevioletred;
+}
+
 #aboutPage h4, #aboutPage p {
     text-align: left;
+}
+
+#test {
+    
 }
 
 @media (max-width:730px) and (min-width:0px) {

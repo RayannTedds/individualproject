@@ -20,6 +20,19 @@ $(document).ready(function() {
     
     $("#currentMonthValue").val(month + 1);
     $("#currentYearValue").val(year);
+    
+    $("td").click(function() {
+        var date = parseInt(this.innerHTML);
+        if(isNaN(date)) {
+        } else {
+            var month = $("#calendar-month-year").text().split(" ")[0];
+            var year = parseInt($("#currentYearValue").val());
+            var dateString = Date.parse(month + date + "," + year);
+            var currentDate = new Date(dateString)
+            $("#daysEvents").css("display", "block");
+            $("#currentDateTitle").text(currentDate.toString().substring(0,16) + "Events")
+        }
+    });
 });
  //When the login button is clicked, hide modals and reset fields
  $("#loginimage").click(function() {
@@ -45,6 +58,14 @@ function openHome() {
     $('#name').text("IT Girls");
     $('#eventsPage').css("display", "none");
     $('#aboutPage').css("display", "none");
+    $("#contactPage").css("display","none");
+    $("#linksPage").css("display","none");
+    $('#ITPage').css("display", "none");
+    $('#technologyPage').css("display", "none");
+    $('#sciencePage').css("display", "none");
+    $('#mathsPage').css("display", "none");
+    $('#daysEvents').css("display", "none");
+    $("#rolesPage").css("display", "none");
 }
 
 function openAbout() {
@@ -52,6 +73,14 @@ function openAbout() {
     $('#name').text("About");
     $('#eventsPage').css("display", "none");
     $('#aboutPage').css("display", "block");
+    $("#contactPage").css("display","none");
+    $("#linksPage").css("display","none");
+    $('#ITPage').css("display", "none");
+    $('#technologyPage').css("display", "none");
+    $('#sciencePage').css("display", "none");
+    $('#mathsPage').css("display", "none");
+    $('#daysEvents').css("display", "none");
+    $("#rolesPage").css("display", "none");
 }
 
 function openEvents() {
@@ -59,6 +88,14 @@ function openEvents() {
     $('#name').text("Events");
     $('#eventsPage').css("display", "block");
     $('#aboutPage').css("display", "none");
+    $("#contactPage").css("display","none");
+    $("#linksPage").css("display","none");
+    $('#ITPage').css("display", "none");
+    $('#technologyPage').css("display", "none");
+    $('#sciencePage').css("display", "none");
+    $('#mathsPage').css("display", "none");
+    $('#daysEvents').css("display", "none");
+    $("#rolesPage").css("display", "none");
 }
 
 function openContact() {
@@ -66,6 +103,14 @@ function openContact() {
     $('#name').text("Contact");
     $('#eventsPage').css("display", "none");
     $('#aboutPage').css("display", "none");
+    $("#contactPage").css("display","block");
+    $("#linksPage").css("display","none");
+    $('#ITPage').css("display", "none");
+    $('#technologyPage').css("display", "none");
+    $('#sciencePage').css("display", "none");
+    $('#mathsPage').css("display", "none");
+    $('#daysEvents').css("display", "none");
+    $("#rolesPage").css("display", "none");
 }
 
 function openLinks() {
@@ -73,6 +118,89 @@ function openLinks() {
     $('#name').text("Useful Links");
     $('#eventsPage').css("display", "none");
     $('#aboutPage').css("display", "none");
+    $("#contactPage").css("display","none");
+    $("#linksPage").css("display","none");
+    $('#ITPage').css("display", "block");
+    $('#technologyPage').css("display", "none");
+    $('#sciencePage').css("display", "none");
+    $('#mathsPage').css("display", "none");
+    $('#daysEvents').css("display", "none");
+    $("#rolesPage").css("display", "none");
+}
+
+function openIT() {
+    closeNav();
+    $('#name').text("IT/Computing");
+    $('#eventsPage').css("display", "none");
+    $('#aboutPage').css("display", "none");
+    $("#contactPage").css("display","none");
+    $("#linksPage").css("display","none");
+    $('#ITPage').css("display", "block");
+    $('#technologyPage').css("display", "none");
+    $('#sciencePage').css("display", "none");
+    $('#mathsPage').css("display", "none");
+    $('#daysEvents').css("display", "none");
+    $("#rolesPage").css("display", "none");
+}
+
+function openScience() {
+    closeNav();
+    $('#name').text("Science");
+    $('#eventsPage').css("display", "none");
+    $('#aboutPage').css("display", "none");
+    $("#contactPage").css("display","none");
+    $("#linksPage").css("display","none");
+    $('#ITPage').css("display", "none");
+    $('#technologyPage').css("display", "none");
+    $('#sciencePage').css("display", "block");
+    $('#mathsPage').css("display", "none");
+    $('#daysEvents').css("display", "none");
+    $("#rolesPage").css("display", "none");
+}
+
+function openTechnology() {
+    closeNav();
+    $('#name').text("Technology");
+    $('#eventsPage').css("display", "none");
+    $('#aboutPage').css("display", "none");
+    $("#contactPage").css("display","none");
+    $("#linksPage").css("display","none");
+    $('#ITPage').css("display", "none");
+    $('#technologyPage').css("display", "block");
+    $('#sciencePage').css("display", "none");
+    $('#mathsPage').css("display", "none");
+    $('#daysEvents').css("display", "none");
+    $("#rolesPage").css("display", "none");
+}
+
+function openMaths() {
+    closeNav();
+    $('#name').text("Maths");
+    $('#eventsPage').css("display", "none");
+    $('#aboutPage').css("display", "none");
+    $("#contactPage").css("display","none");
+    $("#linksPage").css("display","none");
+    $('#ITPage').css("display", "none");
+    $('#technologyPage').css("display", "none");
+    $('#sciencePage').css("display", "none");
+    $('#mathsPage').css("display", "block");
+    $('#daysEvents').css("display", "none");
+    $("#rolesPage").css("display", "none");
+}
+
+function openRoles() {
+    closeNav();
+    $('#name').text("Roles in STEM");
+    $('#eventsPage').css("display", "none");
+    $('#aboutPage').css("display", "none");
+    $("#contactPage").css("display","none");
+    $("#linksPage").css("display","none");
+    $('#ITPage').css("display", "none");
+    $('#technologyPage').css("display", "none");
+    $('#sciencePage').css("display", "none");
+    $('#mathsPage').css("display", "none");
+    $('#daysEvents').css("display", "none");
+    $("#rolesPage").css("display", "block");
 }
 
 function calender() {
@@ -92,6 +220,19 @@ function calender() {
     var calendar = get_calendar(day_no, days);
     $("table").remove();
     document.getElementById("calendar-dates").appendChild(calendar);
+    
+    $("td").click(function() {
+    var date = parseInt(this.innerHTML);
+        if(isNaN(date)) {
+        } else {
+            var month = $("#calendar-month-year").text().split(" ")[0];
+            var year = parseInt($("#currentYearValue").val());
+            var dateString = Date.parse(month + date + "," + year);
+            var currentDate = new Date(dateString)
+            $("#daysEvents").css("display", "block");
+            $("#currentDateTitle").text(currentDate.toString().substring(0,16) + "Events")
+        }
+    });
     
 }
 
