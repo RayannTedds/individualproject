@@ -1,11 +1,11 @@
 body {
-	font-family: Helvetica, sans-serif;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 	font-weight: bold;
 	background-color: lightgray;
 	border-radius: 4px;
 	padding: 10px;
 	text-align: center;
-	overflow-y: hidden;
+	overflow: hidden;
 }
 
 #mainContent {
@@ -14,7 +14,8 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #f1f1f1;
+    /*background-color: #f1f1f1;*/
+    background-image: url(../images/women.png);
 }
 
 #banner {
@@ -22,10 +23,42 @@ body {
     top: 0;
     height: 50px;
     width: 100%;
-    background-color: palevioletred;
+    background-color: #766a92;
     text-align: center;
     border-bottom: 1px solid gray;
+    display: none;
 }
+
+#maintitle {
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 15%;
+    color: white;
+    margin-bottom: 500px;
+}
+
+#title {
+    font-size: 7em;
+}
+
+#homerow {
+    background-color: aliceblue;
+    padding-bottom: 20px;
+    box-shadow: 20px 5px 60px black;    
+    position:absolute;
+    height: 400px;
+    padding-top: 40px;
+
+}
+
+#homerow h4 {
+    font-size: 17pt;
+    padding-top: 9px;
+    margin-bottom: -5px;
+    font-weight: bold;
+}
+
 
 #minibanner {
     left: 0;
@@ -35,6 +68,15 @@ body {
     background-color: darkgray;
     text-align: center;
     border-bottom: 1px solid gray;
+    display: none;
+}
+
+#openimage {
+    height: 45px;
+    width: 75px;
+    position: relative;
+    margin-top: 80px;
+    cursor: pointer;
 }
 
 .minibanneroption {
@@ -46,10 +88,10 @@ body {
 }
 
 .minibanneroption:hover {
-    color:palevioletred;
+    color: rgb(194, 173, 242);
 }
 
-#name, #menuicon, #loginimage {
+#name, #menuicon, #loginimage, #profileButton {
     font-size: 1.4em;
     color: white;
     position: relative;
@@ -65,12 +107,21 @@ body {
     font-size: 1.55em;
 }
 
-#loginimage {
+#loginimage, #logoutimage, #profileButton {
     width: 28px;
     height: 25px;
     float: right;
     margin-right: 15px;
     cursor: pointer;
+}
+
+#profilecontent {
+    height: 180px;
+}
+
+#logoutimage {
+    top: 12px;
+    position: relative;
 }
 
 #homeimagemain {
@@ -104,15 +155,15 @@ body {
 
 .sidenav p, a {
     padding-top: 14px;
-    padding-bottom: 14px;
+    padding-bottom: 9px;
     padding-left: 20px;
     text-decoration: none;
     text-align: left;
-    font-size: 1.3em;
+    font-size: 1.1em;
     color: white;
     display: block;
     transition: 0.1s;
-    border-bottom: 1.5px solid rgba(219,112,147, 0.2);
+    border-bottom: 1.5px solid rgba(222, 255, 243, 0.2);
     cursor: pointer;
 }
 
@@ -125,7 +176,7 @@ body {
 }
 
 .sidenav a:hover {
-    color: palevioletred;
+    color: rgb(194, 173, 242);
     text-decoration: none;
 }
 
@@ -141,18 +192,18 @@ body {
     left: 0;
     text-align: right;
     padding-bottom: 10px;
-    box-shadow: 0px 1px 5px rgba(219,112,147, 1);
+    box-shadow: 0px 1px 5px rgb(80, 193, 151);
 }
 
 .menusection {
-    box-shadow: 0px 1px 5px rgba(219,112,147, 1);
+    box-shadow: 0px 1px 5px rgb(80, 193, 151);
 }
 
 #sectionone {
     margin-top: -6px;
 }
 
-#sectionthree {
+#sectionthree, #sectiontwo {
     margin-top: 3px;
 }
 
@@ -182,7 +233,7 @@ body {
 }
 
 .modal-header {
-    border-bottom: 1.5px solid rgba(219,112,147, 0.3);
+    border-bottom: 0.5px solid #766a92;
 }
 
 .modal-body {
@@ -209,9 +260,9 @@ fieldset {
 	color: darkgray;
 }
 
-#login, #resetPassword, #removeProfile , #bookEvent {
+#login, #resetPassword, #removeProfile , #bookEvent, #resultsButton, #submit {
 	height: 40px;
-	background-color: palevioletred;
+	background-color: #766a92;
 	border: 0;
 	width: 100%;
 	margin-top: 15px;
@@ -220,7 +271,7 @@ fieldset {
 
 #register, #reset {
 	height: 40px;
-	background-color: palevioletred;
+	background-color: #766a92;
 	border: 0;
 	width: 48%;
 	margin-left: 2px;
@@ -228,7 +279,7 @@ fieldset {
 
 label {
 	float: right;
-	color: palevioletred;
+	color: #766a92;
 	font-weight: normal;
 	cursor: pointer;
 }
@@ -238,17 +289,33 @@ label {
     float: none;
 }
 
-#aboutPage, #eventsPage, #contactPage, #linksPage, #ITPage, #mathsPage, #sciencePage, #technologyPage, #rolesPage {
+#aboutPage, #eventsPage, #contactPage, #forumPage, #ITPage, #mathsPage, #sciencePage, #technologyPage, #rolesPage,
+#wishPage, #wisPage, #discussionPage{
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 1000px;
     display: none;
+    background-color: #f8f8ffc2;
+    overflow-y: auto;
+    padding-bottom: 70px;
+    padding-top: 30px;
+    margin: 0 auto;
+    box-shadow: 0 10px 45px -10px black;
+}
+
+#eventsPage {
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow-y: hidden;
 }
 
 #aboutPage {
-    width: 60%;
     margin: 0 auto;
     margin-top: 50px;
+    padding: 30px;
+    width: 60%;
+    height: auto;
+    overflow-y: hidden;
 }
 
 #calendar-container{
@@ -256,7 +323,6 @@ label {
     width: 60%;
     height: 50%;
     text-align: center;
-    border: 1px solid #eee;
     font-size: 16px;
     font-family: Arial;
     padding-top: 20px;
@@ -327,6 +393,7 @@ table {
     display: inline-block;
     background-color: #efe5e5;
     height: 100%;
+    
 }
 
 #previousMonth {
@@ -347,11 +414,22 @@ table {
     height: 100%;
     margin-top: 60px;
     border-top: 2px solid darkgray;
+    padding-bottom: 30px;
+}
+
+#daysEvents p {
+    width: 50%;
+    position: relative;
+    margin-left: 25%;
 }
 
 .eventTitles {
     font-weight: bold;
     padding-top: 15px;
+}
+
+.event p {
+    text-align: center;
 }
 
 .inline {
@@ -360,30 +438,400 @@ table {
     width: 100%;
 }
 
+.rolecheck {
+    display: inline-block;
+}
+
+div.rolecheck {
+    float: left;
+    margin-bottom: 5px;
+}
+
+input.rolecheck {
+    float: right;
+    margin-bottom: 5px;
+}
+
+.marginbottom {
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
 .event {
     height: 40px;
-    background-color: #f4d4de;
+    background-color: rgb(80, 193, 151);
     text-align: left;
     padding: 10px;
     margin-top: 23px;
-    border-top: 1px solid palevioletred;
-    border-bottom: 1px solid palevioletred;
+    border-top: 1px solid #766a92;
+    border-bottom: 1px solid #766a92;
     cursor: pointer;
 }
 
 .current {
     width:60%;
     margin: 0 auto;
-    border: 1px solid palevioletred;
+    border: 1px solid #766a92;
+}
+
+.current div {
+    text-align: center;
+}
+
+#currentDateTitle {
+    width: 100%;
+    text-align: center;
 }
 
 #aboutPage h4, #aboutPage p {
     text-align: left;
 }
 
+#rolesPage h4 {
+    margin-top: 20px;
+}
+
+.roleLetter {
+    position: relative;
+    height: 40px;
+    font-size: 12pt;
+    color: white;
+    text-align: center;
+    padding-top: 8px;
+    /*width: 50%;*/
+    margin-bottom: 30px;
+    border: 1px solid darkgray;
+}
+
+.col-sm-6 {
+    width: 80%;
+}
+
+.personality {
+    cursor: pointer;
+}
+
+.circle, .circlesmall {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    background-color: #766a92;
+    border-radius: 40px;
+    margin: 0 auto;
+    border: 1px solid darkgray;
+}
+
+.circlesmall {
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+}
+
+.posttitle {
+    display: inline-block;
+    width: 90%;
+    margin-left: 10px;
+}
+
+.date {
+    color: darkgray;
+}
+
+.right {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    /*margin-right: 25px;*/
+}
+
+.left {
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.textleft {
+    text-align: left;
+}
+
+.textright {
+    text-align: right;
+}
+
+.gray {
+    background-color: gray;
+}
+
+.pink {
+    background-color: rgb(80, 193, 151);
+}
+
+.pinkcolor {
+    color: rgb(80, 193, 151);
+    font-weight:bold;
+}
+
+.description {
+    background-color: white;
+    margin-top: -30px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px solid darkgray;
+    border-top: none;
+}
+
+#resultModal .modal-dialog {
+    width: 70%;
+}
+
+#descriptionResult {
+    border: 0;
+}
+
+.modaldescription {
+    margin-top: 0;
+}
+
+.modaldescription h4 {
+    font-size: 12pt;
+}
+
+.h4modal {
+    margin-top: 20px;
+    border-top: 1px solid #766a92;
+    padding-top: 15px;
+}
+
+.jobs {
+    padding-right: 40px;
+}
+
+#explorerDescription, #entrepreneurDescription, #communicatorDescription, #developerDescription, #investigatorDescription, #managerDescription, 
+#persuaderDescription, #policymakerDescription, #regulatorDescription, #serviceproviderDescription, #supporterDescription, #trainerDescription {
+    display: none;
+}
+
+ul, li {
+    text-align: left;
+    margin-left: -20px;
+}
+
+.borderright {
+    border-right: 1px solid #766a92;
+    margin-top: 10px;
+}
+
+.grayjob, .pinkjob {
+    width: 30%;
+    margin: 0 auto;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    min-height: 30px;
+    padding-top: 5px;
+}
+
+.modalgrayjob, .modalpinkjob {
+    width: 100%;
+    margin-bottom: 0px
+}
+
+.extrapadding {
+    padding-bottom: 5px;
+}
+
+.grayjob {
+    background-color: rgba(211,211,211,0.5);
+}
+
+.pinkjob {
+    background-color: #b7e5d5;
+}
+
+
 #test {
+    margin-bottom: 20px;
+    cursor:pointer;
+}
+
+.panel {
+    margin-bottom: 0px;
+    border: 0;
+}
+
+.category-panel {
+    box-shadow: 0 3px 2px -2px darkgrey;
+    margin-top: 30px;
+}
+
+.panel-heading {
+    background-color: rgb(80, 193, 151);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-right: 1px solid #a9a9a947;
+    border-left: 1px solid #a9a9a947;
+    border-top: 1px solid #a9a9a947;
+    font-size: 10pt;
+}
+
+.panel-title {
+    background-color: #b7e5d5;
+    border-right: 1px solid #a9a9a947;
+    border-left: 1px solid #a9a9a947;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 8pt;
+}
+
+.panel-content {
+    background-color: white;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-right: 1px solid #a9a9a947;
+    border-left: 1px solid #a9a9a947;
+    border-bottom: 1px solid #a9a9a947;
+    padding-left: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 8.5pt;
     
 }
+
+.paddingLeft {
+    padding-left: 14px;
+}
+
+.facts, .facts li {
+    margin: 0;
+    font-weight: normal;
+    margin-left: 8px;
+}
+
+li a {
+    color: black;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 10pt;
+}
+
+.inspire {
+    width: 48%;
+    box-shadow: none;
+}
+
+.inspiremain {
+    /*width: 34%;*/
+    box-shadow: none;
+    left: 10px;
+}
+
+.inspireright {
+    margin-left: 46px;
+}
+
+.inspireimage {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    z-index: 100;
+    position: absolute;
+    right: -22px;
+    top: -22px;
+    border-radius: 50px;
+}
+
+.inspireimageright {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    z-index: 100;
+    position: absolute;
+    left: -22px;
+    top: -22px;
+    border-radius: 50px;
+}
+
+#inputEmailAddress, #inputName {
+    margin-bottom: 20px;
+}
+
+#inputMessage {
+    min-height: 180px;
+    resize: none;
+}
+
+#authorSection {
+    margin-bottom: 35px;
+}
+
+#aboutPage h4 {
+    font-weight: bold;
+}
+
+#aboutPage p {
+    font-weight: normal;
+}
+
+#authorSection img {
+    float:right;
+    height:120px;
+    width:120px;
+    box-shadow: 1px 1px 10px gray;
+}
+
+#plus, #plustitle, #plus2, #plustitle2 {
+    display: inline-block;
+    cursor: pointer;
+}
+
+#plus, #plus2 {
+    margin-right: 5px;
+}
+
+#addcomment {
+    float: right;
+}
+
+#inputTitle {
+    margin-bottom: 10px;
+}
+
+.forumlink {
+    margin-bottom: -30px;
+}
+
+.authorbits {
+    width: 49%;
+    display: inline-block;
+}
+
+.bordertop {
+    border-top: 1px solid darkgray;
+}
+
+.normal {
+    font-weight: normal;
+}
+
+select {
+	height: 50px;
+    border-radius: 5px;
+    width: 100%;
+    color: gray;
+    border-color: #CCCCCC;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    padding-left: 7px;
+    margin-bottom: 10px;
+}
+
+.nothingtoshow {
+    margin-top: 20px;
+}
+
+
 
 @media (max-width:730px) and (min-width:0px) {
     #calendar-header {

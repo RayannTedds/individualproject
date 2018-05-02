@@ -3,91 +3,146 @@
 	<head>
 		<meta charset="utf-8">
 		<title>IT Girls</title>
-		  <meta charset="utf-8">
-		  <meta name="viewport" content="width=device-width, initial-scale=1">
-		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<meta charset="utf-8">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="/individualproject/scripts/main.js"></script>	
-		<link rel="stylesheet" href="/individualproject/styles/style.css">
+		<script type="text/javascript" src="/scripts/main.js"></script>	
+		<link rel="stylesheet" href="/styles/style.css">
 	</head>
 	
 	<body>
 		<div id="mySidenav" class="sidenav">
 		  	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		  	<div id="sectionone" class="menusections">
-		  		<a class="firstmenuitem" onclick='openIT()'>IT/Computing</a>
-		  		<a class='menuitem' onclick="openTechnology()">Technology</a>
-		  		<a class='menuitem' onclick="openMaths()">Maths</a>
-		  		<a class='menusection menuitem' onclick="openScience()">Science</a>
-		  	</div>
-		  	<div id="sectionthree" class="menusections menusection">
+		  	<div id="sectionone" class="menusections menusection">
 			  	<a class="menuitem" onclick='openRoles()'>Roles in STEM</a>
-			</div>
+			  	<a class='menuitem' id="testModalButton" onclick="closeNav()" data-toggle="modal" data-target="#testModal">What Role Am I?</a>
+			  	<a class="menuitem" onclick='openwish()'>Women in STEM - History</a>
+			  	<a class="menuitem menusection" onclick='openwis()'>Women in STEM - Now</a>
+			</div> 
+		  	<!--<div id="sectiontwo" class="menusections">-->
+		  	<!--	<a class="firstmenuitem" onclick='openIT()'>IT/Computing</a>-->
+		  	<!--	<a class='menuitem' onclick="openTechnology()">Technology</a>-->
+		  	<!--	<a class='menuitem' onclick="openMaths()">Maths</a>-->
+		  	<!--	<a class='menusection menuitem' onclick="openScience()">Science</a>-->
+		  	<!--</div>-->
 		  	<div id="sectionthree" class="menusections">
 			  	<a class="menuitem" onclick='openAbout()'>About</a>
 			  	<a class='menuitem' onclick="openEvents()">Events</a>
-			  	<a class='menuitem' onclick="openContact()">Contact</a>
-			  	<a class='menusection menuitem' onclick="openLinks()">Useful Links</a>
+			  	<a class='menuitem' onclick="openForum()">Forum</a>
+			  	<a class='menuitem menusection' data-toggle="modal" data-target="#contactModal" onclick="closeNav()">Contact Us</a>
 			</div>
 		</div>
 		
 		<div id="mainContent">
+			<input type="text" val="" id="sessionUserID" hidden="hidden"/>
+			<img id="homeimagemain" onclick='openHome()' src="/images/home.png"/>
+			<p id="menuicon" class="bannerparts" onclick="openNav()">☰</p>
+			<img class="bannerparts" id="loginimage" data-toggle="modal" data-target="#loginModal" src="/images/login.png" onclick="closeNav()"/>
 			<div id="banner">
-				<img id="homeimagemain" onclick='openHome()' src="/individualproject/images/home.png"/>
-				<p id="menuicon" class="bannerparts" onclick="openNav()">☰</p>
+				<!--<img id="homeimagemain" onclick='openHome()' src="/images/home.png"/>-->
+				<!--<p id="menuicon" class="bannerparts" onclick="openNav()">☰</p>-->
 				<p id="name" class="bannerparts">IT Girls</p>
-				<img class="bannerparts" id="loginimage" data-toggle="modal" data-target="#loginModal" src="/individualproject/images/login.png"/>
+				<img class="bannerparts" id="logoutimage" onclick="logout()" src="/images/logout.png"/>
+				<!--<img class="bannerparts" id="loginimage" data-toggle="modal" data-target="#loginModal" src="/images/login.png" onclick="closeNav()"/>-->
+				<img class="bannerparts" id="profileButton" data-toggle="modal" data-target="#profileModal" src="/images/login.png" onclick="closeNav()"/>
 			</div>
 			<div id="minibanner">
-				<p class='minibanneroption' onclick="openAbout()">About</p>
-				<p class='minibanneroption' onclick="openEvents()">Events</p>
-				<p class='minibanneroption' onclick="openContact()">Contact</p>
-				<p class='minibanneroption' onclick="openLinks()">Links</p>
+				<p class='minibanneroption' onclick="openRoles()">Roles in STEM</p>
+				<p class='minibanneroption' data-toggle="modal" data-target="#testModal">What Role Am I?</p>
+				<p class='minibanneroption' onclick="openwish()">Women in STEM - History</p>
+				<p class='minibanneroption' onclick="openwis()">Women in STEM - Now</p>
 			</div>
-			
+			<!--<div id="homepageid"></div>-->
+			<div id="homepage">
+				<div id="maintitle">
+					<h2 id="title">itgirls</h2>
+					<h3 id="banneropacity">Inspiring young women towards a life in STEM</h3>
+					<img id="openimage" src="/images/downward.png" />
+				</div>
+				<div class="row" id="homerow">
+					<div id="inspiringwomen" class="col-sm-4">
+						<h4>Woman of the Day</h4>
+						<div class="container">
+							<div class="row">
+								<div class="category-panel col-sm-5 inspiremain">
+									<img src="./images/mariecurie.jpg" class="inspireimage"/>
+									<div class="row panel">
+										<div class="col-sm-12 panel-heading textleft">Marie Curie</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 panel-title textleft paddingLeft">Science</div>
+									</div>
+									<div class="row panel-content">
+										<div class="col-sm-12 textleft paddingLeft bold">Most remembered for her discovery of radium and polonium, as well as her help with the fight against cancer</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="randomevent" class="col-sm-4"></div>
+					<div id="inthemedia" class="col-sm-4">
+						<h4>Popular</h4>
+						<div class="container">
+							<div class="row">
+								<div class="category-panel col-sm-5 inspiremain">
+									<img src="./images/hiddenfigures.jpg" class="inspireimageright"/>
+									<div class="row panel">
+										<div class="col-sm-12 panel-heading textright">Hidden Figures</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 panel-title textright paddingLeft">Movie</div>
+									</div>
+									<div class="row panel-content">
+										<div class="col-sm-12 textright paddingLeft bold">The story of a team of female African-American mathematicians who served a vital role in NASA during the early years of the U.S. space program.</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div id="eventsPage">
 				<div id="previousMonth">
-					<h4 class="eventTitles">Last Month</h4>
-					<div class="event" data-toggle="modal" data-target="#eventModal">
-						<p>Name</p>
-					</div>
-					<div class="event" data-toggle="modal" data-target="#eventModal">
-						<p>Name</p>
-					</div>
+					<h4 class="eventTitles">This Month</h4>
 				</div>
 				<div id="calendar-container">
 		            <div id="calendar-header">
-		            	<div id="previous" class="arrows" onclick="getPreviousMonth()"><img id="leftimage" src="/individualproject/images/left.png"/></div>
+		            	<div id="previous" class="arrows" onclick="getPreviousMonth()"><img id="leftimage" src="/images/left.png"/></div>
 		                <p id="calendar-month-year"></p>
-		                <div id="next" class="arrows" onclick="getNextMonth()"><img id="rightimage" src="/individualproject/images/right.png"/></div>
+		                <div id="next" class="arrows" onclick="getNextMonth()"><img id="rightimage" src="/images/right.png"/></div>
 		                <input type="text" hidden="hidden" id="currentMonthValue"/>
 		                <input type="text" hidden="hidden" id="currentYearValue"/>
 		            </div>
 		            <div id="calendar-dates"></div>
 		        </div>
-	        	<div id="nextMonth">
-					<h4 class="eventTitles">Next Month</h4>
-					<div class="event" data-toggle="modal" data-target="#eventModal">
-						<p>Name</p>
-					</div>
-				</div>
+	        	<div id="nextMonth"></div>
 				<div id="daysEvents">
-					<h4 class="eventTitles" id="currentDateTitle"></h4>
-					<div class="event current" data-toggle="modal" data-target="#eventModal">
-						<p>Name</p>
-					</div>
+					
 				</div>
 			</div>
 			<div id="aboutPage">
+				<div id="authorSection">
+					<img src="images/author.jpg"/>
+					<h4>The Author</h4>
+					<p>Rayann Tedds</p>
+					<p>Computing student at Coventry University</p>
+				</div>
 				<h4>Inspiration</h4>
-				<p>Inspiration for the app</p>
-				<h4>The Facts</h4>
-				<p>Facts</p>
-				<h4>Why do we need more women?</h4>
-				<p>Why we need more women in STEM</p>
+				<p>For decades, science, technology, engineering and mathematics (STEM) have been perceived as ‘male’ subjects.</p>
+				<p>It is a recurring problem through many influential countries in the world and this is reflected by the under-representation of women in STEM in education and careers.</p>
+				<p>As a young woman, I took an interest in what are commonly seen as ‘male’ subjects and I have experienced working in a male-dominated industry where I felt the pressures and lack of support in STEM.</p>
+				<p>At the age of 12, I experienced a male maths teacher expressing his views that I was not good enough to be within the top-ability group which lead to a massive knock in my confidence - it was only when another teacher expressed their faith in me and supported me that I really began to thrive.</p>
+				<p>The aim of this app is to provide young women with inspiration, advice and support to help stimulate an interest in STEM.</p>
 			</div>
-			
+			<div id="forumPage">
+				<div class="container" id="forumcontainer"></div>
+			</div>
+			<div id="discussionPage">
+				<div class="container" id="discussionContainer"></div>
+			</div>
 			<div id="ITPage">
 			</div>
 			
@@ -101,11 +156,1004 @@
 			</div>
 			
 			<div id="rolesPage">
-				<h4>Introduction paragraph</h4>
-				<p id="test">Take the test</p>
+				<h4>What role best suits you?</h4>
+				<p id="test" data-toggle="modal" data-target="#testModal">Click on the options to find out more or click here to take the test!</p>
+				<div class="container">
+				    <div class="row">
+				        <div class="col-sm-5 roleName" id="communicator">
+				        	<div class="roleLetter right pink">Communicator</div>
+				        </div>
+				        <div class="col-sm-1">
+				        	<div class="circle pink" id="communicatorcircle"></div>
+				        </div>
+				        <div class="col-sm-1">
+				        	<div class="circle pink" id="developercircle"></div>
+				        </div>
+				        <div class="col-sm-5 roleName" id="developer"> 						
+				        	<div class="roleLetter left pink">Developer</div>			    
+				        </div>
+				    </div>
+				    <div class="col-sm-12 description" id="communicatorDescription">
+				  		<div class="container">
+		            		<div class="row">
+		            			<div class="col-sm-4 borderright">
+					                <h4 class="pinkcolor">Personality Features</h4>
+					                <div>
+					                	<ul>
+					                		<li>People person</li>
+					                		<li>Good with words</li>
+					                		<li>Good at simplifying information and technical facts</li>
+					                		<li>Underestands their audiences</li>
+					                		<li>Resourceful</li>
+					                		<li>Good in front of an audience</li>
+					                		<li>Good at foreign languages (possibly)</li>
+					                		<li>Good in front of a camera (possibly)</li>
+					                	</ul>
+					                </div>
+				                </div>
+				                <div class="col-sm-8 jobs">
+					                <h4 class="pinkcolor">Potential Jobs</h4>
+					                <div class="col-sm-4 grayjob">Events Officer</div>
+					                <div class="col-sm-4 grayjob">Medical Writer</div>
+					                <div class="col-sm-4 grayjob">Museum Curator</div>
+					                <div class="col-sm-4 pinkjob">Outreach Officer</div>
+					                <div class="col-sm-4 pinkjob">Science Festival Director</div>
+					                <div class="col-sm-4 pinkjob">Science Journalist</div>
+					                <div class="col-sm-4 grayjob">Science Publisher</div>
+					                <div class="col-sm-4 grayjob">TV Researcher</div>
+					                <div class="col-sm-4 grayjob">Technical Translator</div>
+					                <div class="col-sm-4 pinkjob">Website Designer</div>
+					              	<div class="col-sm-4 pinkjob extrapadding">Head of Scientific Programming (TV)</div>
+					              	<div class="col-sm-4 pinkjob extrapadding">Science Communications Officer</div>
+					            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-sm-12">
+					                <h4 class="pinkcolor">Where to work?</h4>
+					                <div>Businesses</div>
+					                <div>Charities</div>
+					                <div>Media</div>
+				                </div>
+				            </div>
+		            	</div>
+		    		</div>
+		    		
+		    		<div class="col-sm-12 description" id="developerDescription">
+				  		<div class="container">
+		            		<div class="row">
+		            			<div class="col-sm-4 borderright">
+					                <h4 class="pinkcolor">Personality Features</h4>
+					                <div>
+					                	<ul>
+					                		<li>Creative</li>
+					                		<li>Practical</li>
+					                		<li>Likes design and developing for the future</li>
+					                		<li>Empathetic</li>
+					                		<li>Creative</li>
+					                		<li>Problem solver</li>
+					                	</ul>
+					                </div>
+				                </div>
+				                <div class="col-sm-8 jobs">
+					                <h4 class="pinkcolor">Potential Jobs</h4>
+					                <div class="col-sm-4 grayjob">Civil Engineer</div>
+					                <div class="col-sm-4 grayjob">Engineering Apprentice</div>
+					                <div class="col-sm-4 grayjob">Piping Designer</div>
+					                <div class="col-sm-4 pinkjob">Product Designer</div>
+					                <div class="col-sm-4 pinkjob">Signalling Designer</div>
+					                <div class="col-sm-4 pinkjob">Software Developer</div>
+					                <div class="col-sm-4 grayjob">Sport Scientist</div>
+					                <div class="col-sm-4 grayjob">Transport Planner</div>
+					                <div class="col-sm-4 grayjob">Technology Apprentice</div>
+					                <div class="col-sm-4 pinkjob extrapadding">Research and Development Design Scientist</div>
+					                <div class="col-sm-4 pinkjob extrapadding">Artificial Intelligence Specialist</div>
+					                <div class="col-sm-4 pinkjob extrapadding">Space Craft Structures Engineer</div>
+					            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-sm-12">
+					                <h4 class="pinkcolor">Where to work?</h4>
+					                <div>Businesses in product design and development</div>
+					                <div>Architecture companies</div>
+				                </div>
+				            </div>
+		            	</div>
+		    		</div>
+				    <div class="row">
+				    	<div class="col-sm-5 roleName" id="entrepreneur">
+				        	<div class="roleLetter right gray">Entrepreneur</div>
+				        </div>
+				        <div class="col-sm-1">
+				        	<div class="circle gray" id="entrepreneurcircle"></div>
+				        </div>
+				        <div class="col-sm-1">
+				        	<div class="circle gray" id="explorercircle"></div>
+				        </div>
+				        <div class="col-sm-5 roleName" id="explorer">						
+				        	<div class="roleLetter left gray">Explorer</div>			    
+				        </div>
+				    </div>
+				    <div class="col-sm-12 description" id="explorerDescription">
+				  		<div class="container">
+		            		<div class="row">
+		            			<div class="col-sm-4 borderright">
+					                <h4 class="pinkcolor">Personality Features</h4>
+					                <div>
+					                	<ul>
+					                		<li>Inquisitive</li>
+					                		<li>Practical</li>
+					                		<li>Competitive</li>
+					                		<li>Likes to be the first to know</li>
+					                		<li>Good at reading</li>
+					                		<li>Good at experimenting</li>
+					                		<li>Good at information searching</li>
+					                		<li>Individual worker</li>
+					                		<li>Listener</li>
+					                		<li>Concentrate on one topic</li>
+					                		<li>Likes solving puzzles</li>
+					                	</ul>
+					                </div>
+				                </div>
+				                <div class="col-sm-8 jobs">
+					                <h4 class="pinkcolor">Potential Jobs</h4>
+					                <div class="col-sm-4 grayjob">Astronomer</div>
+					                <div class="col-sm-4 grayjob">Cosmologist</div>
+					                <div class="col-sm-4 grayjob">Geneticist</div>
+					                <div class="col-sm-4 pinkjob">Geologist</div>
+					                <div class="col-sm-4 pinkjob">IT Support</div>
+					                <div class="col-sm-4 pinkjob">Pharmacist</div>
+					                <div class="col-sm-4 grayjob">Professor</div>
+					                <div class="col-sm-4 grayjob">Research Assistant</div>
+					                <div class="col-sm-4 grayjob">Research Chemist</div>
+					                <div class="col-sm-4 pinkjob extrapadding">Research Veterinary Scientist</div>
+					                <div class="col-sm-4 pinkjob">Test Engineer</div>
+					                <div class="col-sm-4 pinkjob">Zoologist</div>
+					            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-sm-12">
+					                <h4 class="pinkcolor">Where to work?</h4>
+					                <div>Universities</div>
+					                <div>Hospital laboratories for charities</div>
+				                </div>
+				            </div>
+		            	</div>
+		    		</div>
+		    		<div class="col-sm-12 description" id="entrepreneurDescription">
+				  		<div class="container">
+		            		<div class="row">
+		            			<div class="col-sm-4 borderright">
+					                <h4 class="pinkcolor">Personality Features</h4>
+					                <div>
+					                	<ul>
+					                		<li>Confident</li>
+					                		<li>Creative</li>
+					                		<li>Competitive</li>
+					                		<li>Likes to make things happen</li>
+					                		<li>Empathetic</li>
+					                		<li>Can work well in a team</li>
+					                		<li>Financially aware</li>
+					                		<li>Lateral thinker</li>
+					                		<li>Understands the client/customer</li>
+					                		<li>A natural leader</li>
+					                	</ul>
+					                </div>
+				                </div>
+				                <div class="col-sm-8 jobs">
+					                <h4 class="pinkcolor">Potential Jobs</h4>
+					                <div class="col-sm-4 grayjob">Business Architect</div>
+					                <div class="col-sm-4 grayjob">Chief Executive</div>
+					                <div class="col-sm-4 grayjob">Consultant</div>
+					                <div class="col-sm-4 pinkjob">Founding Director</div>
+					                <div class="col-sm-4 pinkjob">Innovation Lead</div>
+					                <div class="col-sm-4 pinkjob">Managing Director</div>
+					                <div class="col-sm-4 grayjob extrapadding">Energy Efficiency Officer</div>
+					                <div class="col-sm-4 grayjob extrapadding">Operational Research Consultant</div>
+					            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-sm-12">
+					                <h4 class="pinkcolor">Where to work?</h4>
+					                <div>Businesses</div>
+					                <div>Charities</div>
+					                <div>Public sector (for business or society)</div>
+				                </div>
+				            </div>
+		            	</div>
+		    		</div>
+				    <div class="row">
+				    	<div class="col-sm-5 roleName" id="investigator">
+				        	<div class="roleLetter right pink">Investigator</div>
+				        </div>
+				        <div class="col-sm-1">
+				        	<div class="circle pink" id="investigatorcircle"></div>
+				        </div>
+				        <div class="col-sm-1">
+				        	<div class="circle pink" id="managercircle"></div>
+				        </div>
+				        <div class="col-sm-5 roleName" id="manager">						
+				        	<div class="roleLetter left pink">Manager</div>			    
+				        </div>
+				    </div>
+				    <div class="col-sm-12 description" id="investigatorDescription">
+				  		<div class="container">
+		            		<div class="row">
+		            			<div class="col-sm-4 borderright">
+					                <h4 class="pinkcolor">Personality Features</h4>
+					                <div>
+					                	<ul>
+					                		<li>Logical</li>
+					                		<li>Cooperative</li>
+					                		<li>Idea collector</li>
+					                		<li>Likes working with others</li>
+					                		<li>Good at remembering facts</li>
+					                		<li>Problem solver</li>
+					                		<li>Knowledgable of lots of subject areas</li>
+					                		<li>People person</li>
+					                	</ul>
+					                </div>
+				                </div>
+				                <div class="col-sm-8 jobs">
+					                <h4 class="pinkcolor">Potential Jobs</h4>
+					                <div class="col-sm-4 grayjob">Computer Modeller</div>
+					                <div class="col-sm-4 grayjob">Customer Analyst Officer</div>
+					                <div class="col-sm-4 grayjob">Ingredients Technician</div>
+					                <div class="col-sm-4 pinkjob">Meteorologist</div>
+					                <div class="col-sm-4 pinkjob">Physiologist</div>
+					                <div class="col-sm-4 pinkjob">Programme Analyst</div>
+					                <div class="col-sm-4 grayjob">Sound Engineer</div>
+					                <div class="col-sm-4 grayjob extrapadding">Flood & Coastal Risk Management Officer</div>
+					            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-sm-12">
+					                <h4 class="pinkcolor">Where to work?</h4>
+					                <div>Research and Development departments of businesses, hospitals and universities</div>
+				                </div>
+				            </div>
+		            	</div>
+		    		</div>
+		    		<div class="col-sm-12 description" id="managerDescription">
+				  		<div class="container">
+		            		<div class="row">
+		            			<div class="col-sm-4 borderright">
+					                <h4 class="pinkcolor">Personality Features</h4>
+					                <div>
+					                	<ul>
+					                		<li>Organised</li>
+					                		<li>Motivator</li>
+					                		<li>Clear planner</li>
+					                		<li>Can work with budgets</li>
+					                		<li>Works efficiently</li>
+					                		<li>Natural leader</li>
+					                		<li>Persuader</li>
+					                	</ul>
+					                </div>
+				                </div>
+				                <div class="col-sm-8 jobs">
+					                <h4 class="pinkcolor">Potential Jobs</h4>
+					                <div class="col-sm-4 grayjob">Business Analyst</div>
+					                <div class="col-sm-4 grayjob">Flood Risk Manager</div>
+					                <div class="col-sm-4 grayjob">IT Manager</div>
+					                <div class="col-sm-4 pinkjob">Media Manager</div>
+					                <div class="col-sm-4 pinkjob">Project Planner</div>
+					                <div class="col-sm-4 pinkjob">Special Effects</div>
+					                <div class="col-sm-4 grayjob">Supervisor</div>
+					                <div class="col-sm-4 grayjob extrapadding">Head of Resource & Competence Management</div>
+					                <div class="col-sm-4 grayjob extrapadding">Product Development Manager</div>
+					            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-sm-12">
+					                <h4 class="pinkcolor">Where to work?</h4>
+					                <div>Any size business</div>
+					                <div>Consultancies</div>
+					                <div>Education institutions</div>
+					                <div>Local government</div>
+				                </div>
+				            </div>
+		            	</div>
+		    		</div>
+				    <div class="row">
+				    	<div class="col-sm-5 roleName" id="persuader">
+				        	<div class="roleLetter right gray">Persuader</div>
+				        </div>
+				        <div class="col-sm-1">
+				        	<div class="circle gray" id="persuadercircle"></div>
+				        </div>
+				        <div class="col-sm-1">
+				        	<div class="circle gray" id="policymakercircle"></div>
+				        </div>
+				        <div class="col-sm-5 roleName" id="policymaker">						
+				        	<div class="roleLetter left gray">Policy Maker</div>			    
+				        </div>
+				    </div>
+				    <div class="col-sm-12 description" id="persuaderDescription">
+				  		<div class="container">
+		            		<div class="row">
+		            			<div class="col-sm-4 borderright">
+					                <h4 class="pinkcolor">Personality Features</h4>
+					                <div>
+					                	<ul>
+					                		<li>Imaginative</li>
+					                		<li>Persuasive</li>
+					                		<li>Understanding</li>
+					                		<li>Creative</li>
+					                		<li>Good with words</li>
+					                		<li>Good with design</li>
+					                		<li>Organised</li>
+					                		<li>Deadline driven</li>
+					                	</ul>
+					                </div>
+				                </div>
+				                <div class="col-sm-8 jobs">
+					                <h4 class="pinkcolor">Potential Jobs</h4>
+					                <div class="col-sm-4 grayjob">Campaigns Manager</div>
+					                <div class="col-sm-4 grayjob">Head of Advertising</div>
+					                <div class="col-sm-4 grayjob">Home Energy Advisor</div>
+					                <div class="col-sm-4 pinkjob">Marketing Assistant</div>
+					                <div class="col-sm-4 pinkjob">Marketing Manager</div>
+					                <div class="col-sm-4 pinkjob">Outreach Officer</div>
+					                <div class="col-sm-4 grayjob">Publicity Officer</div>
+					                <div class="col-sm-4 grayjob extrapadding">Membership Development Officer</div>
+					            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-sm-12">
+					                <h4 class="pinkcolor">Where to work?</h4>
+					                <div>Marketing</div>
+					                <div>Advertising</div>
+					                <div>PR in universities or businesses</div>
+				                </div>
+				            </div>
+		            	</div>
+		    		</div>
+		    		<div class="col-sm-12 description" id="policymakerDescription">
+				  		<div class="container">
+		            		<div class="row">
+		            			<div class="col-sm-4 borderright">
+					                <h4 class="pinkcolor">Personality Features</h4>
+					                <div>
+					                	<ul>
+					                		<li>Polite</li>
+					                		<li>Conscientious</li>
+					                		<li>Good at explaining things to different technical abilities</li>
+					                		<li>Good eye for detail</li>
+					                		<li>Enjoys writing reports</li>
+					                		<li>Diplomatic</li>
+					                		<li>Likes information searching and reviewing</li>
+					                	</ul>
+					                </div>
+				                </div>
+				                <div class="col-sm-8 jobs">
+					                <h4 class="pinkcolor">Potential Jobs</h4>
+					                <div class="col-sm-4 grayjob extrapadding">Chief Scientific Advisor</div>
+					                <div class="col-sm-4 grayjob">Conservation Officer</div>
+					                <div class="col-sm-4 grayjob">Sustainability Consultant</div>
+					                <div class="col-sm-4 pinkjob extrapadding">Diversity and Inclusion Officer</div>
+					                <div class="col-sm-4 pinkjob extrapadding">Head of Engineering and Society</div>
+					                <div class="col-sm-4 pinkjob extrapadding">Head of Government Affairs</div>
+					                <div class="col-sm-4 grayjob">Lawyer</div>
+					                <div class="col-sm-4 grayjob">Policy Officer</div>
+					            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-sm-12">
+					                <h4 class="pinkcolor">Where to work?</h4>
+					                <div>Local or national governments</div>
+				                </div>
+				            </div>
+		            	</div>
+		    		</div>
+				    <div class="row">
+				    	<div class="col-sm-5 roleName" id="regulator">
+				        	<div class="roleLetter right pink">Regulator</div>
+				        </div>
+				        <div class="col-sm-1">
+				        	<div class="circle pink" id="regulatorcircle"></div>
+				        </div>
+				        <div class="col-sm-1">
+				        	<div class="circle pink" id="serviceprovidercircle"></div>
+				        </div>
+				        <div class="col-sm-5 roleName" href="#serviceprovider" id="serviceprovider">						
+				        	<div class="roleLetter left pink">Service Provider</div>			    
+				        </div>
+				    </div>
+				    <div class="col-sm-12 description" id="regulatorDescription">
+				  		<div class="container">
+		            		<div class="row">
+		            			<div class="col-sm-4 borderright">
+					                <h4 class="pinkcolor">Personality Features</h4>
+					                <div>
+					                	<ul>
+					                		<li>Honest</li>
+					                		<li>Fair</li>
+					                		<li>Likes to check details are correct</li>
+					                		<li>Good at spotting errors and potential problems</li>
+					                		<li>Natural sense of justice</li>
+					                		<li>Willing to challenge the norm</li>
+					                	</ul>
+					                </div>
+				                </div>
+				                <div class="col-sm-8 jobs">
+					                <h4 class="pinkcolor">Potential Jobs</h4>
+					                <div class="col-sm-4 grayjob">Compliance Officer</div>
+					                <div class="col-sm-4 grayjob">Digital Designer</div>
+					                <div class="col-sm-4 grayjob">Drug Tester</div>
+					                <div class="col-sm-4 pinkjob">Fingerprint Officer</div>
+					                <div class="col-sm-4 pinkjob">Fire Safety Engineer</div>
+					                <div class="col-sm-4 pinkjob">Food Safety Analyst</div>
+					                <div class="col-sm-4 grayjob">Interactive Designer</div>
+									<div class="col-sm-4 grayjob">Patent Lawyer</div>
+					               	<div class="col-sm-4 grayjob">Technology Lawyer</div>
+					                <div class="col-sm-4 pinkjob extrapadding">Conservation Building Surveyor</div>
+					                <div class="col-sm-4 pinkjob extrapadding">Measurement and Control Technician</div>
+					                <div class="col-sm-4 pinkjob extrapadding">Regulatory Affairs and Risk</div>
+					            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-sm-12">
+					                <h4 class="pinkcolor">Where to work?</h4>
+					                <div>Businesses</div>
+					                <div>Laboratories</div>
+					                <div>Offices</div>
+				                </div>
+				            </div>
+		            	</div>
+		    		</div>
+		    		<div class="col-sm-12 description" id="serviceproviderDescription">
+				  		<div class="container">
+		            		<div class="row">
+		            			<div class="col-sm-4 borderright">
+					                <h4 class="pinkcolor">Personality Features</h4>
+					                <div>
+					                	<ul>
+					                		<li>Organised</li>
+					                		<li>Attention to detail</li>
+					                		<li>Likes to help people</li>
+					                		<li>Good communication skills</li>
+					                		<li>Effective leader</li>
+					                		<li>Teamworker</li>
+					                		<li>Likes projects with fixed times and budgets</li>
+					                	</ul>
+					                </div>
+				                </div>
+				                <div class="col-sm-8 jobs">
+					                <h4 class="pinkcolor">Potential Jobs</h4>
+					                <div class="col-sm-4 grayjob">Animal Welfare Technician</div>
+					                <div class="col-sm-4 grayjob">Customer Service Advisor</div>
+					                <div class="col-sm-4 grayjob">Forensic Scientist</div>
+					                <div class="col-sm-4 pinkjob">GP</div>
+					                <div class="col-sm-4 pinkjob">Health Physicist</div>
+					                <div class="col-sm-4 pinkjob">Materials Analyst</div>
+					                <div class="col-sm-4 grayjob">Pathologist</div>
+					                <div class="col-sm-4 grayjob">Quality Technician</div>
+					                <div class="col-sm-4 grayjob">Radiographer</div>
+					                <div class="col-sm-4 pinkjob">Research Technician</div>
+					                <div class="col-sm-4 pinkjob">Science/Lab Technician</div>
+					                <div class="col-sm-4 pinkjob">Scrum Master</div>
+					                <div class="col-sm-4 grayjob">Town Planner</div>
+					                <div class="col-sm-4 grayjob">Vet</div>
+									<div class="col-sm-4 grayjob">Vet Nurse</div>
+									<div class="col-sm-4 pinkjob extrapadding">Flood & Coastal Risk Management Officer</div>
+					            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-sm-12">
+					                <h4 class="pinkcolor">Where to work?</h4>
+					                <div>Hospitals</div>
+					                <div>Vets</div>
+					                <div>Laboratories</div>
+					                <div>Surgeries</div>
+					                <div>Organisations</div>
+					                <div>Universities and schools</div>
+				                </div>
+				            </div>
+		            	</div>
+		    		</div>
+				    <div class="row">
+				    	<div class="col-sm-5 roleName" id="supporter">
+				        	<div class="roleLetter right gray">Supporter</div>
+				        </div>
+				        <div class="col-sm-1">
+				        	<div class="circle gray" id="supportercircle"></div>
+				        </div>
+				        <div class="col-sm-1">
+				        	<div class="circle gray" id="trainercircle"></div>
+				        </div>
+				        <div class="col-sm-5 roleName" id="trainer">						
+				        	<div class="roleLetter left gray">Trainer</div>			    
+				        </div>
+				    </div>
+				    <div class="col-sm-12 description" id="supporterDescription">
+				  		<div class="container">
+		            		<div class="row">
+		            			<div class="col-sm-4 borderright">
+					                <h4 class="pinkcolor">Personality Features</h4>
+					                <div>
+					                	<ul>
+					                		<li>Creative</li>
+					                		<li>Understanding</li>
+					                		<li>Likes helping people</li>
+					                		<li>Naturally good at making friends</li>
+					                		<li>Social</li>
+					                		<li>Listener</li>
+					                		<li>Takes pride in exceeding expectations</li>
+					                	</ul>
+					                </div>
+				                </div>
+				                <div class="col-sm-8 jobs">
+					                <h4 class="pinkcolor">Potential Jobs</h4>
+					                <div class="col-sm-4 grayjob">Customer Service Manager</div>
+					                <div class="col-sm-4 grayjob">IT Supply Chain Specialist</div>
+					                <div class="col-sm-4 grayjob">Management Consultant</div>
+					                <div class="col-sm-4 pinkjob">Personal Assistant</div>
+					                <div class="col-sm-4 pinkjob">Planning Assistant</div>
+					                <div class="col-sm-4 pinkjob">Risk and Compliance Advisor</div>
+					                <div class="col-sm-4 grayjob extrapadding">Client Relationship Manager</div>
+					            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-sm-12">
+					                <h4 class="pinkcolor">Where to work?</h4>
+					                <div>Customer relations or customer support in businesses</div>
+				                </div>
+				            </div>
+		            	</div>
+		    		</div>
+		    		<div class="col-sm-12 description" id="trainerDescription">
+				  		<div class="container">
+		            		<div class="row">
+		            			<div class="col-sm-4 borderright">
+					                <h4 class="pinkcolor">Personality Features</h4>
+					                <div>
+					                	<ul>
+					                		<li>Understanding</li>
+					                		<li>Helpful</li>
+					                		<li>Attentive</li>
+					                		<li>Motivating</li>
+					                		<li>Passionate</li>
+					                		<li>Knowledge sharer</li>
+					                		<li>Help people to improve their skills</li>
+					                		<li>Good commuicator</li>
+					                		<li>Teacher</li>
+					                	</ul>
+					                </div>
+				                </div>
+				                <div class="col-sm-8 jobs">
+					                <h4 class="pinkcolor">Potential Jobs</h4>
+					                <div class="col-sm-4 grayjob">Journalist</div>
+					                <div class="col-sm-4 grayjob">Life Coach</div>
+					                <div class="col-sm-4 grayjob">Museum Curator</div>
+					                <div class="col-sm-4 pinkjob">Outreach Officer</div>
+					                <div class="col-sm-4 pinkjob">Science Communicator</div>
+					                <div class="col-sm-4 pinkjob">TV Presenter</div>
+					                <div class="col-sm-4 grayjob">Teacher</div>
+					                <div class="col-sm-4 grayjob">Text Book Author</div>
+					                <div class="col-sm-4 grayjob">Trainer</div>
+					                <div class="col-sm-4 pinkjob extrapadding">Exhibition Content Designer</div>
+					            </div>
+				            </div>
+				            <div class="row">
+				            	<div class="col-sm-12">
+					                <h4 class="pinkcolor">Where to work?</h4>
+					                <div>Training workshops</div>
+					                <div>Educational institutions</div>
+				                </div>
+				            </div>
+		            	</div>
+		    		</div>
+				</div>
+			</div>
+			<div id="wishPage">
+				<div class="container">
+					<div class="row">
+						<div class="category-panel col-sm-5 inspire">
+							<img src="./images/mariecurie.jpg" class="inspireimage"/>
+							<div class="row panel">
+								<div class="col-sm-12 panel-heading textleft">Marie Curie</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 panel-title textleft paddingLeft">Science</div>
+							</div>
+							<div class="row panel-content">
+								<div class="col-sm-12 textleft paddingLeft bold">Most remembered for her discovery of radium and polonium, as well as her help with the fight against cancer</div>
+								<ul class="col-sm-12 facts">
+									<li>Researched into radioactivity</li>
+									<li>In 1903, she won the Nobel Prize for Physics</li>
+									<li>She gained a doctorate in Physics</li>
+									<li>In 1911, she won the Nobel Prize for Chemistry for her work with finding a way to measure radioactivity.</li>
+									<li>By October 1914, she had developed small X-ray units 'Petits Curies' which were used to diagnose battlefield injuries.</li>
+									<li>Following the war, she won other awards including: 
+										<ul>
+											<li>Ellan Richards Research Prize (1921)</li>
+											<li>Grand Prix du Marquis d'Argenteuil (1923)</li>
+											<li>Cameron Prize from Edinburgh University (1931)</li>
+										</ul>
+									</li>
+									<li>Marie Curie charity is set up in her name to support cancer patients.</li>
+								</ul>
+							</div>
+						</div>
+						<div class="category-panel col-sm-5 inspire inspireright">
+							<img src="./images/rosalindfranklyn.jpg" class="inspireimage"/>
+							<div class="row panel">
+								<div class="col-sm-12 panel-heading textleft">Rosalind Franklyn</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 panel-title textleft paddingLeft">Science</div>
+							</div>
+							<div class="row panel-content">
+								<div class="col-sm-12 textleft paddingLeft bold">Most remembered for her work which aided the understanding of the DNA, RNA, viruses, coal and graphite molecular structures.</div>
+								<ul class="col-sm-12 facts">
+									<li>Her X-ray diffraction images of the DNA molecule played a key part in the discovery of the double helix model.</li>
+									<li>Her work advanced the knowledge of polio and tobaccoo mosaic viruses and their molecular structure.</li>
+									<li>She published her findings and research in papers throughout the years.</li>
+									<li>In 1942, she accepted a fellowship to the British Coal Utilisation Research Association.</li>
+									<li>In 1958, she received a 3 year grant from the U.S. National Institute of Health to continue her research work.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="category-panel col-sm-5 inspire">
+							<img src="./images/lisemeitner.jpg" class="inspireimage"/>
+							<div class="row panel">
+								<div class="col-sm-12 panel-heading textleft">Lise Meitner</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 panel-title textleft paddingLeft">Science</div>
+							</div>
+							<div class="row panel-content">
+								<div class="col-sm-12 textleft paddingLeft bold">Most remembered for being in the team that discovered nuclear fission.</div>
+								<ul class="col-sm-12 facts">
+									<li>Researched into radioactivity</li>
+									<li>In 1905, at the University of Vienna, she became the second lady to earn a PhD in Physics.</li>
+									<li>She was the first ever female allowed to attend Max Planck's lectures</li>
+									<li>In 1909, she published 2 papers on beta radiation.</li>
+									<li>In 1926 she became the first woman in Germany to become a full professor of Physics.</li>
+									<li>In 1945, Otto Hahn received the Nobel Prize in Chemistry but Meitner's was not named as a co-recipient due to gender bias.</li>
+									<li>She won awards and other achievements including: 
+										<ul>
+											<li>Woman of the Year by the National Press Club (1946)</li>
+											<li>Max Planck Medal of the German Physics Society (1949)</li>
+											<li>Otto Hahn Prize of the German Chemical Society (1955)</li>
+										</ul>
+									</li>
+									<li>Meitnerium (element 109) is named after her. </li>
+								</ul>
+							</div>
+						</div>
+						<div class="category-panel col-sm-5 inspire inspireright">
+							<img src="./images/gertrudebelion.jpg" class="inspireimage"/>
+							<div class="row panel">
+								<div class="col-sm-12 panel-heading textleft">Gertrude B. Elion</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 panel-title textleft paddingLeft">Medicine</div>
+							</div>
+							<div class="row panel-content">
+								<div class="col-sm-12 textleft paddingLeft bold">Most remembered for her work in drug research and development.</div>
+								<ul class="col-sm-12 facts">
+									<li>At the age of 15, she graduated with the highest honors in Chemistry.</li>
+									<li>In 1988, she won the Nobel Prize for Medicine.</li>
+									<li>She was a leading American chemst and the holder of 45 patents.</li>
+									<li>She discovered the drug acyclovir which is used for the treatment of herpes.</li>
+									<li>She discovered the drug Pyrimethamine which is used for the treatment of malaria.</li>
+									<li>She also advanced the field of medicine when it came to other illnesses such as leukemia, AIDS and gout.</li>
+									<li>She won awards and other achievements including: 
+										<ul>
+											<li>Garvan-Olin Medal (1968)</li>
+											<li>National Medal of Science (1991)</li>
+											<li>Lemelson-MIT Lifetime Achievement Award (1997)</li>
+										</ul>
+									</li>
+									<li>She is deemed to be the first women named in the National Inventors Hall of Fame in Akron.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="category-panel col-sm-5 inspire inspire">
+							<img src="./images/adalovelace.jpg" class="inspireimage"/>
+							<div class="row panel">
+								<div class="col-sm-12 panel-heading textleft">Ada Lovelace</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 panel-title textleft paddingLeft">Computing and Mathematics</div>
+							</div>
+							<div class="row panel-content">
+								<div class="col-sm-12 textleft paddingLeft bold">Most remembered for her work and research on the theories of 'jumping genes'.</div>
+								<ul class="col-sm-12 facts">
+									<li>In 1923, she recieved a Bachelor's degree in Botany and went on to further recieve a Master's and a PhD.</li>
+									<li>She became the first scientist to understand the nature of chromosomes during meisosis, as well as diagramming it.</li>
+									<li>She also conducted researching into X-rays and their mutuating properties.</li>
+									<li>She was the first scientist to fully understand the centromere and its role in genetics, as well as outlining it to others.</li>
+									<li>In terms of achievements and awards, she faced lots of sexual discrimination meaning her work contributions were not recognised.</li>
+								</ul>
+							</div>
+						</div>
+						<div class="category-panel col-sm-5 inspire inspireright">
+							<img src="./images/barbaramcclintock.jpg" class="inspireimage"/>
+							<div class="row panel">
+								<div class="col-sm-12 panel-heading textleft">Barbara McClintock</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 panel-title textleft paddingLeft">Computing and Mathematics</div>
+							</div>
+							<div class="row panel-content">
+								<div class="col-sm-12 textleft paddingLeft bold">Most remembered for her work in drug research and development.</div>
+								<ul class="col-sm-12 facts">
+									<li>At the age of 15, she graduated with the highest honors in Chemistry.</li>
+									<li>In 1988, she won the Nobel Prize for Medicine.</li>
+									<li>She was a leading American chemst and the holder of 45 patents.</li>
+									<li>She discovered the drug acyclovir which is used for the treatment of herpes.</li>
+									<li>She discovered the drug Pyrimethamine which is used for the treatment of malaria.</li>
+									<li>She also advanced the field of medicine when it came to other illnesses such as leukemia, AIDS and gout.</li>
+									<li>She won awards and other achievements including: 
+										<ul>
+											<li>Garvan-Olin Medal (1968)</li>
+											<li>National Medal of Science (1991)</li>
+											<li>Lemelson-MIT Lifetime Achievement Award (1997)</li>
+										</ul>
+									</li>
+									<li>She is deemed to be the first women named in the National Inventors Hall of Fame in Akron.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				<!--	<div class="category-panel">-->
+				<!--		<div class="row panel">-->
+				<!--			<div class="col-sm-12 panel-heading textleft">Edith Clarke</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-title textleft paddingLeft">Engineering</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-content textleft paddingLeft">Description</div>-->
+				<!--		</div>-->
+				<!--	</div>-->
+				<!--	<div class="category-panel">-->
+				<!--		<div class="row panel">-->
+				<!--			<div class="col-sm-12 panel-heading textleft">Women of ENIAC</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-title textleft paddingLeft">Computing</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-content textleft paddingLeft">Description</div>-->
+				<!--		</div>-->
+				<!--	</div>-->
+				<!--	<div class="category-panel">-->
+				<!--		<div class="row panel">-->
+				<!--			<div class="col-sm-12 panel-heading textleft">Grace Hopper</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-title textleft paddingLeft">Software Developer</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-content textleft paddingLeft">Description</div>-->
+				<!--		</div>-->
+				<!--	</div>-->
+				<!--	<div class="category-panel">-->
+				<!--		<div class="row panel">-->
+				<!--			<div class="col-sm-12 panel-heading textleft">Sister Mary Kenneth Keller</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-title textleft paddingLeft">Computing</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-content textleft paddingLeft">Description</div>-->
+				<!--		</div>-->
+				<!--	</div>-->
+				<!--	<div class="category-panel">-->
+				<!--		<div class="row panel">-->
+				<!--			<div class="col-sm-12 panel-heading textleft">Susan Kare</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-title textleft paddingLeft">Computing</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-content textleft paddingLeft">Description</div>-->
+				<!--		</div>-->
+				<!--	</div>-->
+				<!--	<div class="category-panel">-->
+				<!--		<div class="row panel">-->
+				<!--			<div class="col-sm-12 panel-heading textleft">Carol Shaw</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-title textleft paddingLeft">Game Developing</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-content textleft paddingLeft">Description</div>-->
+				<!--		</div>-->
+				<!--	</div>-->
+				<!--	<div class="category-panel">-->
+				<!--		<div class="row panel">-->
+				<!--			<div class="col-sm-12 panel-heading textleft">Janese Swanson</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-title textleft paddingLeft">Computing</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-content textleft paddingLeft">Description</div>-->
+				<!--		</div>-->
+				<!--	</div>-->
+				<!--	<div class="category-panel">-->
+				<!--		<div class="row panel">-->
+				<!--			<div class="col-sm-12 panel-heading textleft">Radia Perlman</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-title textleft paddingLeft">Computing and Mathematics</div>-->
+				<!--		</div>-->
+				<!--		<div class="row">-->
+				<!--			<div class="col-sm-12 panel-content textleft paddingLeft">Description</div>-->
+				<!--		</div>-->
+				<!--	</div>-->
+				<!--</div>-->
 			</div>
 		</div>
-		
+		<div id="wisPage">
+				<div class="container">
+					<div class="row">
+						<div class="category-panel col-sm-5 inspire">
+							<img src="./images/mayimbialik.jpg" class="inspireimage"/>
+							<div class="row panel">
+								<div class="col-sm-12 panel-heading textleft">Mayim Bialik</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 panel-title textleft paddingLeft">Neuroscientist & Actress</div>
+							</div>
+							<div class="row panel-content">
+								<div class="col-sm-12 textleft paddingLeft bold">Most known for playing Amy in 'The Big Bang Theory'.</div>
+								<ul class="col-sm-12 facts">
+									<li>She has a doctorate in Neuroscience.</li>
+									<li>She has also taught the subject for many years.</li>
+									<li>She wrote a book for parents explainging the science behind hormones.</li>
+									<li>She also arrived 'late' to science as growing up she saw it to be a 'boy' subject but now she is an advocate in promoting the importance of investing in STEM careers for both genders.</li>
+								</ul>
+							</div>
+						</div>
+						<div class="category-panel col-sm-5 inspire inspireright">
+							<img src="./images/brittanywenger.jpg" class="inspireimage"/>
+							<div class="row panel">
+								<div class="col-sm-12 panel-heading textleft">Brittany Wenger</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 panel-title textleft paddingLeft">Teen Computer Whiz</div>
+							</div>
+							<div class="row panel-content">
+								<div class="col-sm-12 textleft paddingLeft bold">Developed an 'artificial brain' technology aimed at diagnosing breast cancer.</div>
+								<ul class="col-sm-12 facts">
+									<li>She designed an artificial brain to detect signs of breast cancer, after a family member was diagnosed with the disease.</li>
+									<li>She was only 19 years old at the time.</li>
+									<li>This breast cancer test now has its own application and is being trialled in a few cancer research centers.</li>
+									<li>The test has a 99% accuracy rating.</li>
+									<li>In 2013, she was named one of Time Magazine's 30 under 30.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="category-panel col-sm-5 inspire">
+							<img src="./images/jennacarpenter.png" class="inspireimage"/>
+							<div class="row panel">
+								<div class="col-sm-12 panel-heading textleft">Dr. Jenna Carpenter</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 panel-title textleft paddingLeft">Advocate at Campbell University</div>
+							</div>
+							<div class="row panel-content">
+								<div class="col-sm-12 textleft paddingLeft bold">Advocate for women in engineering.</div>
+								<ul class="col-sm-12 facts">
+									<li>She regularly advises and supports schools and other organisations when it comes to professional development for women in enginerring to encourage them to study maths and engineering.</li>
+									<li>Fantastic and inspiring female role model.</li>
+								</ul>
+							</div>
+						</div>
+						<div class="category-panel col-sm-5 inspire inspireright">
+							<img src="./images/debbiesterling.jpg" class="inspireimage"/>
+							<div class="row panel">
+								<div class="col-sm-12 panel-heading textleft">Debbie Sterling</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 panel-title textleft paddingLeft">Engineer and Toy Inventor</div>
+							</div>
+							<div class="row panel-content">
+								<div class="col-sm-12 textleft paddingLeft bold">She has been quoted as to being 'the lady engineer who hopes to unseat the princesses from their toy-store thrones.'</div>
+								<ul class="col-sm-12 facts">
+									<li>She invented an interactive book series and construction set which shows a female inventor solving everyday problems by building simple machines.</p>
+									<li>She was stunned by the lack of women in her engineering degree and this is when her idea was sparked.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="category-panel col-sm-5 inspire inspire">
+							<img src="./images/karenpanetta.jpg" class="inspireimage"/>
+							<div class="row panel">
+								<div class="col-sm-12 panel-heading textleft">Dr. Karen Panetta</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 panel-title textleft paddingLeft">Founder of Nerd Girls</div>
+							</div>
+							<div class="row panel-content">
+								<div class="col-sm-12 textleft paddingLeft bold">She is known as the 'Princess Warrior' of Engineering and Science education.</div>
+								<ul class="col-sm-12 facts">
+									<li>She founded the global movement which celebrates the female individuality in STEM.</li>
+									<li>Nerd Girls is a program which encourages women to pursue a future in engineering and science.</li>
+									<li>She is passionate about seeing how engineering can benefit society and life in general.</li>
+								</ul>
+							</div>
+						</div>
+						<div class="category-panel col-sm-5 inspire inspireright">
+							<img src="./images/chelseaclinton.jpg" class="inspireimage"/>
+							<div class="row panel">
+								<div class="col-sm-12 panel-heading textleft">Chelsea Clinton</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 panel-title textleft paddingLeft">Vice Chair, Clinton Foundation</div>
+							</div>
+							<div class="row panel-content">
+								<div class="col-sm-12 textleft paddingLeft bold">She is making it her mission to make STEM careers 'cool' for girls.</div>
+								<ul class="col-sm-12 facts">
+									<li>Herself, and the Clinton Foundation are working towards creating a world where females can achieve participation in any area of their life.</li>
+									<li>To find out more, <a class="nowlink" src="https://www.clintonfoundation.org/our-work/by-topic/girls-and-women">click here!</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				
+		<!--			</div>-->
+		<!--			<div class="category-panel">-->
+		<!--				<div class="row panel">-->
+		<!--					<div class="col-sm-12 panel-heading textleft">Dr. Ellen Stofan</div>-->
+		<!--				</div>-->
+		<!--				<div class="row">-->
+		<!--					<div class="col-sm-12 panel-title textleft paddingLeft">Chief Scientist at NASA</div>-->
+		<!--				</div>-->
+		<!--				<div class="row">-->
+		<!--					<div class="col-sm-12 panel-content textleft paddingLeft">Description</div>-->
+		<!--				</div>-->
+		<!--			</div>-->
+		<!--			<div class="category-panel">-->
+		<!--				<div class="row panel">-->
+		<!--					<div class="col-sm-12 panel-heading textleft">Marissa Mayer</div>-->
+		<!--				</div>-->
+		<!--				<div class="row">-->
+		<!--					<div class="col-sm-12 panel-title textleft paddingLeft">CEO of Yahoo!</div>-->
+		<!--				</div>-->
+		<!--				<div class="row">-->
+		<!--					<div class="col-sm-12 panel-content textleft paddingLeft">Description</div>-->
+		<!--				</div>-->
+		<!--			</div>-->
+		<!--			<div class="category-panel">-->
+		<!--				<div class="row panel">-->
+		<!--					<div class="col-sm-12 panel-heading textleft">Danica McKellar</div>-->
+		<!--				</div>-->
+		<!--				<div class="row">-->
+		<!--					<div class="col-sm-12 panel-title textleft paddingLeft">Mathematician, Actress and Education Advocate</div>-->
+		<!--				</div>-->
+		<!--				<div class="row">-->
+		<!--					<div class="col-sm-12 panel-content textleft paddingLeft">Description</div>-->
+		<!--				</div>-->
+		<!--			</div>-->
+		<!--			<div class="category-panel">-->
+		<!--				<div class="row panel">-->
+		<!--					<div class="col-sm-12 panel-heading textleft">NASA’s Datanauts</div>-->
+		<!--				</div>-->
+		<!--				<div class="row">-->
+		<!--					<div class="col-sm-12 panel-title textleft paddingLeft">STEM Women on a Mission</div>-->
+		<!--				</div>-->
+		<!--				<div class="row">-->
+		<!--					<div class="col-sm-12 panel-content textleft paddingLeft">Description</div>-->
+		<!--				</div>-->
+		<!--			</div>-->
+		<!--		</div>-->
+		<!--	</div>-->
+		<!--</div>-->
 		<div id="loginModal" class="modal fade" role="dialog">
 			<div class="modal-dialog">
 		    	<div class="modal-content">
@@ -149,9 +1197,9 @@
 											<label id="usernameExists"></label>
 											<input type="text" class="form-control inputs" id="inputUsername" placeholder="Username">
 										</div>
-										<div class="form-group">
-											<input type="date" class="form-control inputs" id="dob" placeholder="Date of birth">
-										</div>
+										<!--<div class="form-group">-->
+										<!--	<input type="date" class="form-control inputs" id="dob" placeholder="Date of birth">-->
+										<!--</div>-->
 										<div class="form-group">
 											<label id="emailNotValid"></label>
 											<input type="text" class="form-control inputs" id="inputEmailSign" placeholder="Email">
@@ -173,6 +1221,16 @@
 				      	</div>
 				    </div>
 				</div>
+			</div>
+			<div id="responseModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+			    	<div class="modal-content">
+			      		<div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal" id="modalClose">&times;</button>
+				        	<h4 id="responseText" class="formText"></h4>
+				      	</div>
+				    </div>
+			    </div>
 			</div>
 		
 			<div id="forgottenModal" class="modal fade" role="dialog">
@@ -208,26 +1266,19 @@
 			</div>
 			<div id="profileModal" class="modal fade" role="dialog">
 				<div class="modal-dialog">
-			    	<div class="modal-content">
+			    	<div class="modal-content" id="profilecontent">
 			      		<div class="modal-header">
 				        	<button type="button" class="close" data-dismiss="modal" id="profileClose">&times;</button>
-				        	<h3 class="modalTitles" id="profileusername">Username</h3>
+				        	<h3 class="modalTitles" id="profileusername"></h3>
 			      		</div>
 				      	<div class="modal-body myprofile">
 			        		<div class="col-12"> 
 			        			<div>
-				        			<p class="bold inline">Member Since: </p>
 				        			<p class="inline paddingLeft" id="userMemberSince"></p>
 				        		</div>
 				        		<div>
-				        			<p class="bold inline">Age: </p>
-				        			<p class="inline paddingLeft" id="userAge"></p>
+				        			<p class="inline paddingLeft" id="advisedRole"></p>
 				        		</div>
-				        		<div>
-				        			<p class="bold inline">Email: </p>
-				        			<p class="inline paddingLeft" id="userEmail"></p>
-				        		</div>
-								<button tye="button" class="btn btn-primary" data-toggle="modal" data-target="#profileRemovalModal" id="removeProfile">Remove Profile</button>
 							</div>
 				      	</div>
 			  		</div>
@@ -238,13 +1289,10 @@
 			    	<div class="modal-content">
 			      		<div class="modal-header">
 				        	<button type="button" class="close" data-dismiss="modal" id="profileClose">&times;</button>
-				        	<h3 class="modalTitles" id="profileusername">Event Details</h3>
+				        	<h3 class="modalTitles" id="eventName"></h3>
 			      		</div>
 				      	<div class="modal-body myprofile">
 			        		<div class="col-12"> 
-			        			<div>
-				        			<p class="bold inline" id="eventName">Event Name </p>
-				        		</div>
 				        		<div>
 				        			<p class="bold inline">Date: </p>
 				        			<p class="inline paddingLeft" id="eventDate"></p>
@@ -253,11 +1301,334 @@
 				        			<p class="bold inline">Location: </p>
 				        			<p class="inline paddingLeft" id="eventLocation"></p>
 				        		</div>
+				        		<div>
+				        			<p class="bold inline">Host: </p>
+				        			<p class="inline paddingLeft" id="eventCompany"></p>
+				        		</div>
+				        		<div>
+				        			<p class="bold inline">Description: </p>
+				        			<p class="inline paddingLeft" id="eventDescription"></p>
+				        		</div>
 								<button tye="button" class="btn btn-primary" id="bookEvent">Book Event</button>
 							</div>
 				      	</div>
 			  		</div>
 			  	</div>
 			</div>
+			<div id="testModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+			    	<div class="modal-content">
+			    		<input type="number" id="e" value="0" hidden="hidden"/>
+			    		<input type="number" id="i" value="0" hidden="hidden"/>
+			    		<input type="number" id="d" value="0" hidden="hidden"/>
+			    		<input type="number" id="s" value="0" hidden="hidden"/>
+			    		<input type="number" id="r" value="0" hidden="hidden"/>
+			    		<input type="number" id="en" value="0" hidden="hidden"/>
+			    		<input type="number" id="c" value="0" hidden="hidden"/>
+			    		<input type="number" id="t" value="0" hidden="hidden"/>
+			    		<input type="number" id="p" value="0" hidden="hidden"/>
+			    		<input type="number" id="su" value="0" hidden="hidden"/>
+			    		<input type="number" id="m" value="0" hidden="hidden"/>
+			    		<input type="number" id="po" value="0" hidden="hidden"/>
+			      		<div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+				        	<h3 class="modalTitles">Which Personality Role Suits Me?</h3>
+				      	</div>
+				      	<div class="modal-body">
+			        		<div class="col-12"> 
+			        			<div class="row marginbottom">
+			        				<div class="col-sm-9">Tick 15 of the following which best describe you!</div>
+			        				<div class="col-sm-3" id="checksremaining">15 Remaining</div>
+			        			</div>
+			        			<div class="row">
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Friendly</div>
+			        					<input class="rolecheck" type="checkbox" id="p1"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Inventive</div>
+			        					<input class="rolecheck" type="checkbox" id="p2"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Persistent</div>
+			        					<input class="rolecheck" type="checkbox" id="p3"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Methodical</div>
+			        					<input class="rolecheck" type="checkbox" id="p4"/>
+			        				</div>
+			        			</div>
+			        			<div class="row">
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Imaginative</div>
+			        					<input class="rolecheck" type="checkbox" id="p5"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Empathetic</div>
+			        					<input class="rolecheck" type="checkbox" id="p6"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Collaborative</div>
+			        					<input class="rolecheck" type="checkbox" id="p7"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Self-motivated</div>
+			        					<input class="rolecheck" type="checkbox" id="p8"/>
+			        				</div>
+			        			</div>
+			        			<div class="row">
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Considerate</div>
+			        					<input class="rolecheck" type="checkbox" id="p9"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Self-reliant</div>
+			        					<input class="rolecheck" type="checkbox" id="p10"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Cooperative</div>
+			        					<input class="rolecheck" type="checkbox" id="p11"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Organised</div>
+			        					<input class="rolecheck" type="checkbox" id="p12"/>
+			        				</div>
+			        			</div>
+			        			<div class="row">
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Neat</div>
+			        					<input class="rolecheck" type="checkbox" id="p13"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Careful</div>
+			        					<input class="rolecheck" type="checkbox" id="p14"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Practical</div>
+			        					<input class="rolecheck" type="checkbox" id="p15"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Conscientious</div>
+			        					<input class="rolecheck" type="checkbox" id="p16"/>
+			        				</div>
+			        			</div>
+			        			<div class="row">
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Fair-minded</div>
+			        					<input class="rolecheck" type="checkbox" id="p17"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Honest</div>
+			        					<input class="rolecheck" type="checkbox" id="p18"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Logical</div>
+			        					<input class="rolecheck" type="checkbox" id="p19"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Cautious</div>
+			        					<input class="rolecheck" type="checkbox" id="p20"/>
+			        				</div>
+			        			</div>
+			        			<div class="row">
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Budgeter</div>
+			        					<input class="rolecheck" type="checkbox" id="p21"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Diplomatic</div>
+			        					<input class="rolecheck" type="checkbox" id="p22"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Resourceful</div>
+			        					<input class="rolecheck" type="checkbox" id="p23"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Creative</div>
+			        					<input class="rolecheck" type="checkbox" id="p24"/>
+			        				</div>
+			        			</div>
+			        			<div class="row">
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Artistic</div>
+			        					<input class="rolecheck" type="checkbox" id="p25"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Outgoing</div>
+			        					<input class="rolecheck" type="checkbox" id="p26"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Eloquent</div>
+			        					<input class="rolecheck" type="checkbox" id="p27"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Helpful</div>
+			        					<input class="rolecheck" type="checkbox" id="p28"/>
+			        				</div>
+			        			</div>
+			        			<div class="row">
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Curious</div>
+			        					<input class="rolecheck" type="checkbox" id="p29"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Humorous</div>
+			        					<input class="rolecheck" type="checkbox" id="p30"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Patient</div>
+			        					<input class="rolecheck" type="checkbox" id="p31"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Supportive</div>
+			        					<input class="rolecheck" type="checkbox" id="p32"/>
+			        				</div>
+			        			</div>
+			        			<div class="row">
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Witty</div>
+			        					<input class="rolecheck" type="checkbox" id="p33"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Sympathetic</div>
+			        					<input class="rolecheck" type="checkbox" id="p34"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Intuitive</div>
+			        					<input class="rolecheck" type="checkbox" id="p35"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Persuasive</div>
+			        					<input class="rolecheck" type="checkbox" id="p36"/>
+			        				</div>
+			        			</div>
+			        			<div class="row">
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Understanding</div>
+			        					<input class="rolecheck" type="checkbox" id="p37"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Agreeable</div>
+			        					<input class="rolecheck" type="checkbox" id="p38"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Polite</div>
+			        					<input class="rolecheck" type="checkbox" id="p39"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Efficient</div>
+			        					<input class="rolecheck" type="checkbox" id="p40"/>
+			        				</div>
+			        			</div>
+			        			<div class="row">
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Sensible</div>
+			        					<input class="rolecheck" type="checkbox" id="p41"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Impartial</div>
+			        					<input class="rolecheck" type="checkbox" id="p42"/>
+			        				</div>
+			        				<div class="col-sm-3">
+			        					<div class="rolecheck">Reliable</div>
+			        					<input class="rolecheck" type="checkbox" id="p43"/>
+			        				</div>
+			        			</div>
+			        			<button tye="button" class="btn btn-primary" id="resultsButton" onclick="getResults()">Get Results</button>
+							</div>
+				      	</div>
+				    </div>
+				</div>
+			</div>
+			<div id="resultModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+			    	<div class="modal-content">
+			      		<div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal" id="profileClose">&times;</button>
+				        	<h3 class="modalTitles" id="resultRoleName">Results</h3>
+			      		</div>
+				      	<div class="modal-body myprofile">
+			        		<div class="col-12"> 
+								<div class="col-sm-12 modaldescription description" id="descriptionResult">
+							  		<div class="modal-container">
+					            		<div class="row">
+					            			<div class="col-sm-4">
+								                <h4 class="pinkcolor">Personality Features</h4>
+								                <div>
+								                	<ul id="personalfeatures"></ul>
+								                </div>
+							                </div>
+							                <div class="col-sm-8" id="potentialjobs"></div>
+							            </div>
+							            <div class="row">
+							            	<div class="col-sm-12" id="where">
+							                </div>
+							            </div>
+					            	</div>
+					    		</div>
+								<div class="pinkcolor" onclick="rolesModal()">Don't agree? Click here to see the full list of roles.</div>
+							</div>
+				      	</div>
+			  		</div>
+			  	</div>
+			</div>
+		<div id="contactModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+		        	<h3 class="modalTitles">Contact Us</h3>
+		      	</div>
+		      	<div class="modal-body">
+	        		<div class="col-12"> 
+						<form action="mailto:rayanntedds2801@gmail.com" method="post" enctype="text/plain">
+							<fieldset> 
+								<div class="form-group">
+									<input type="text" class="form-control inputs" id="inputName" placeholder="Name">
+									<input type="text" class="form-control inputs" id="inputEmailAddress" placeholder="Email">
+									<textarea placeholder="Message" id="inputMessage" class="form-control inputs" cols="40" rows="5"></textarea>								
+								</div>
+								<button type="button" class="btn btn-primary" id="submit" data-toggle="modal" data-target="#contactModal" onclick="submitMessage()">Submit</button>
+							</fieldset>
+						</form>
+					</div>
+		      	</div>
+		    </div>
+	  	</div>
+	  </div>
+	  	<div id="thanksModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+			        	<h3 class="modalTitles">Thank you for your message!</h3>
+			      	</div>
+		    	</div>
+		    </div>
+	  	</div>
+		<div id="topicModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+		        	<h3 class="modalTitles">Add Topic</h3>
+		      	</div>
+		      	<div class="modal-body">
+	        		<div class="col-12"> 
+						<div class="form-group">
+							<input type="text" class="form-control inputs" id="inputTitle" placeholder="Title">
+							<select id='selectTopic'></select>
+							<textarea placeholder="Message" id="inputDescription" class="form-control inputs" cols="40" rows="5"></textarea>								
+						</div>
+						<button type="button" class="btn btn-primary" id="submit" onclick="addTopic()">Add Topic</button>
+					</div>
+		      	</div>
+		    </div>
+	  	</div>
+	  </div>
+	  <div id="commentModal" class="modal fade" role="dialog">
+		<div class="modal-dialog" id="commentTitle"></div>
+  	</div>
 	</body>
 </html>
+
+				    
